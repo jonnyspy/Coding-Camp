@@ -74,8 +74,7 @@ function drawPlayer() {
 	if (dist(redPortalLocation[1],redPortalLocation[0],playerX,playerY) < 3*blockSize) {
 		room += 1;
 		redPortalLocation = [];
-		//playerX = redPortalLocation[0];
-		//playerY = redPortalLocation[1]+2*blockSize;
+
 	}
 	
 

@@ -56,6 +56,18 @@ function drawBlock(type,x,y) {
 			image(grass,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
+		case FIRE:
+			if (round(fireFrame) == 0) {
+				image(fire1,x*blockSize,y*blockSize,blockSize,blockSize);
+			}
+			if (round(fireFrame) == 1) {
+				image(fire2,x*blockSize,y*blockSize,blockSize,blockSize);
+			}
+			if (fireFrame > 1.5) {
+				fireFrame = -0.5;
+			}
+		break;
+		
 
 		default:
 			fill(255,255,255);

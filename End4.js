@@ -5,6 +5,7 @@ draw = function() {
 	
 	redPortalFrame += 0.02;
 	greenPortalFrame += 0.02;
+	fireFrame += 0.15
 	
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);
