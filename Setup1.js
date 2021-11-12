@@ -23,7 +23,7 @@ var LIMEPORTAL = 8;
 
 var portalLocations = [];
 
-var viewDistance = 50;
+var viewDistance = 20;
 
 var isOnGround = true;
 
