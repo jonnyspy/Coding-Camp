@@ -12,7 +12,22 @@ function drawBlock(type,x,y) {
 			image(dirt,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
-		case LIMEPORTAL:
+		case REDPORTAL:
+			if (round(redPortalFrame) == 0) {
+				image(redPortal1,x*blockSize,y*blockSize);
+			}
+			if (round(redPortalFrame) == 1) {
+				image(redPortal2,x*blockSize,y*blockSize);
+			}
+			if (round(redPortalFrame) == 2) {
+				image(redPortal3,x*blockSize,y*blockSize);
+			}
+			if (round(redPortalFrame) == 3) {
+				image(redPortal4,x*blockSize,y*blockSize);
+			}
+			if (redPortalFrame > 3) {
+				redPortalFrame = 0;
+			}
 			
 		break;
 		

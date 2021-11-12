@@ -4,6 +4,11 @@ PImage dirt;
 PImage stoneLight;
 PImage grass;
 
+PImage redPortal1;
+PImage redPortal2;
+PImage redPortal3;
+PImage redPortal4;
+
 var room = 0;
 var blockSize = 8;
 
@@ -27,14 +32,21 @@ var viewDistance = 20;
 
 var isOnGround = true;
 
+var redPortalFrame = 0;
+
 void setup() {
 	size(1000,512);
 	
 	//load images
 
 	dirt = loadImage("Sprites/dirt_better.png");
-	stoneLight = loadImage("Sprites/stone1_better.png");
+	stoneLight = loadImage("Sprites/stone1_best.png");
 	grass = loadImage("Sprites/grass_better.png");
+	
+	redPortal1 = loadImage("Sprites/Portal_1.png");
+	redPortal2 = loadImage("Sprites/Portal_2.png");
+	redPortal3 = loadImage("Sprites/Portal_3.png");
+	redPortal4 = loadImage("Sprites/Portal_4.png");
 }
 
 void keyPressed() {
@@ -210,7 +222,22 @@ function drawBlock(type,x,y) {
 			image(dirt,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
-		case LIMEPORTAL:
+		case REDPORTAL:
+			if (round(redPortalFrame) == 0) {
+				image(redPortal1,x*blockSize,y*blockSize);
+			}
+			if (round(redPortalFrame) == 1) {
+				image(redPortal2,x*blockSize,y*blockSize);
+			}
+			if (round(redPortalFrame) == 2) {
+				image(redPortal3,x*blockSize,y*blockSize);
+			}
+			if (round(redPortalFrame) == 3) {
+				image(redPortal4,x*blockSize,y*blockSize);
+			}
+			if (redPortalFrame > 3) {
+				redPortalFrame = 0;
+			}
 			
 		break;
 		
@@ -232,6 +259,7 @@ function drawBlock(type,x,y) {
 }
 draw = function() {
 	background(0,0,0);
+	redPortalFrame += 0.02;
 	
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);

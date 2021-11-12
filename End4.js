@@ -1,6 +1,7 @@
 
 draw = function() {
 	background(0,0,0);
+	redPortalFrame += 0.02;
 	
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);

@@ -4,6 +4,11 @@ PImage dirt;
 PImage stoneLight;
 PImage grass;
 
+PImage redPortal1;
+PImage redPortal2;
+PImage redPortal3;
+PImage redPortal4;
+
 var room = 0;
 var blockSize = 8;
 
@@ -27,14 +32,21 @@ var viewDistance = 20;
 
 var isOnGround = true;
 
+var redPortalFrame = 0;
+
 void setup() {
 	size(1000,512);
 	
 	//load images
 
 	dirt = loadImage("Sprites/dirt_better.png");
-	stoneLight = loadImage("Sprites/stone1_better.png");
+	stoneLight = loadImage("Sprites/stone1_best.png");
 	grass = loadImage("Sprites/grass_better.png");
+	
+	redPortal1 = loadImage("Sprites/Portal 1.png");
+	redPortal2 = loadImage("Sprites/Portal 2.png");
+	redPortal3 = loadImage("Sprites/Portal 3.png");
+	redPortal4 = loadImage("Sprites/Portal 4.png");
 }
 
 void keyPressed() {
