@@ -16,7 +16,7 @@ draw = function() {
 	for(var i = 0; i < portalLocations.length; i += 1) {
 		for(var j = 0; j < portalLocations.length; j += 1) {
 			if (i == j) {
-				//portalLocations.remove(j);
+				delete poertalLocations[j];
 			}
 		}
 	}
