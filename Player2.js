@@ -2,7 +2,6 @@
 function drawPlayer() {
 	fill(255,0,0);
 	rect(playerX,playerY,blockSize,blockSize);
-	//image(playerSprite,playerX,playerY,blockSize,blockSize)
 	
 	playerX += playerXSpeed;
 	playerY += playerYSpeed;

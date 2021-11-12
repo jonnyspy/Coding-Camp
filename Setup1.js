@@ -1,6 +1,6 @@
 
 //variables
-PImage playerSprite;
+PImage dirt;
 
 var room = 0;
 var blockSize = 8;
@@ -12,7 +12,6 @@ var playerYSpeed = 0;
 var keys = [];
 
 var AIR = 1;
-var PORTAL = 100;
 var WATER = 50;
 var STONE = 3;
 var DIRT = 2;
@@ -28,8 +27,8 @@ void setup() {
 	size(1000,512);
 	
 	//load images
-	playerSprite = loadImage("Sprites/Player");
-	
+
+	dirt = loadImage("Sprites/Dirt.png");
 }
 
 void keyPressed() {
