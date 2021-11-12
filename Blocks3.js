@@ -57,14 +57,16 @@ function drawBlock(type,x,y) {
 		break;
 		
 		case FIRE:
-			if (round(fireFrame) == 0) {
-				image(fire1,x*blockSize,y*blockSize,blockSize,blockSize);
-			}
 			if (round(fireFrame) == 1) {
-				image(fire2,x*blockSize,y*blockSize,blockSize,blockSize);
+				
+				image(fire1,x*blockSize-(blockSize*3),y*blockSize-(blockSize*6),blockSize*5,blockSize*7)
 			}
-			if (fireFrame > 1.5) {
-				fireFrame = -0.5;
+			if (round(fireFrame) == 2) {
+
+				image(fire2,x*blockSize-(blockSize*3),y*blockSize-(blockSize*6),blockSize*5,blockSize*7);
+			}
+			if (fireFrame > 2) {
+				fireFrame = 1;
 			}
 		break;
 		

@@ -40,7 +40,7 @@ var isOnGround = true;
 
 var redPortalFrame = 0;
 var greenPortalFrame = 0;
-var fireFrame = -0.5;
+var fireFrame = 1;
 var start = true;
 
 void setup() {
@@ -221,10 +221,10 @@ function drawPlayer() {
 	playerY += playerYSpeed;
 	playerYSpeed += 0.1
 	
-	if (keys[RIGHT]) {
+	if (keys[RIGHT] && playerXSpeed < 2) {
 		playerXSpeed += 0.1;
 	}
-	if (keys[LEFT]) {
+	if (keys[LEFT] && playerXSpeed > -2) {
 		playerXSpeed -= 0.1;
 	}
 	if (keys[UP] && isOnGround) {
@@ -285,11 +285,7 @@ function drawPlayer() {
 		
 	}
 	
-	if (dist(redPortalLocation[1],redPortalLocation[0],playerX,playerY) < 3*blockSize) {
-		room += 1;
-		redPortalLocation = [];
-
-	}
+	
 	
 
 
@@ -354,14 +350,16 @@ function drawBlock(type,x,y) {
 		break;
 		
 		case FIRE:
-			if (round(fireFrame) == 0) {
-				image(fire1,x*blockSize,y*blockSize,blockSize,blockSize);
-			}
 			if (round(fireFrame) == 1) {
-				image(fire2,x*blockSize,y*blockSize,blockSize,blockSize);
+				
+				image(fire1,x*blockSize-(blockSize*3),y*blockSize-(blockSize*6),blockSize*5,blockSize*7)
 			}
-			if (fireFrame > 1.5) {
-				fireFrame = -0.5;
+			if (round(fireFrame) == 2) {
+
+				image(fire2,x*blockSize-(blockSize*3),y*blockSize-(blockSize*6),blockSize*5,blockSize*7);
+			}
+			if (fireFrame > 2) {
+				fireFrame = 1;
 			}
 		break;
 		
@@ -379,7 +377,7 @@ draw = function() {
 	
 	redPortalFrame += 0.02;
 	greenPortalFrame += 0.02;
-	fireFrame += 0.15
+	fireFrame += 0.02;
 	
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);
@@ -398,6 +396,18 @@ draw = function() {
 				}
 			}
 		}
+	}
+	
+	if (dist(redPortalLocation[1],redPortalLocation[0],playerX,playerY) < 3*blockSize) {
+		room += 1;
+		for(var i = 0; i < field.length; i += 1) {
+			for(var j = 0; j < field[i].length; j += 1) {
+				if (field[i][j] == REDPORTAL) {
+					redPortalLocation = [i*blockSize, j*blockSize]
+				}
+			}
+		}
+	}
 	}
 	
 	

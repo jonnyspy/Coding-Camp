@@ -5,7 +5,7 @@ draw = function() {
 	
 	redPortalFrame += 0.02;
 	greenPortalFrame += 0.02;
-	fireFrame += 0.15
+	fireFrame += 0.02;
 	
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);
@@ -24,6 +24,18 @@ draw = function() {
 				}
 			}
 		}
+	}
+	
+	if (dist(redPortalLocation[1],redPortalLocation[0],playerX,playerY) < 3*blockSize) {
+		room += 1;
+		for(var i = 0; i < field.length; i += 1) {
+			for(var j = 0; j < field[i].length; j += 1) {
+				if (field[i][j] == REDPORTAL) {
+					redPortalLocation = [i*blockSize, j*blockSize]
+				}
+			}
+		}
+	}
 	}
 	
 	

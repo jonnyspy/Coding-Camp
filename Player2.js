@@ -7,10 +7,10 @@ function drawPlayer() {
 	playerY += playerYSpeed;
 	playerYSpeed += 0.1
 	
-	if (keys[RIGHT]) {
+	if (keys[RIGHT] && playerXSpeed < 2) {
 		playerXSpeed += 0.1;
 	}
-	if (keys[LEFT]) {
+	if (keys[LEFT] && playerXSpeed > -2) {
 		playerXSpeed -= 0.1;
 	}
 	if (keys[UP] && isOnGround) {
@@ -71,11 +71,7 @@ function drawPlayer() {
 		
 	}
 	
-	if (dist(redPortalLocation[1],redPortalLocation[0],playerX,playerY) < 3*blockSize) {
-		room += 1;
-		redPortalLocation = [];
-
-	}
+	
 	
 
 

@@ -40,7 +40,7 @@ var isOnGround = true;
 
 var redPortalFrame = 0;
 var greenPortalFrame = 0;
-var fireFrame = -0.5;
+var fireFrame = 1;
 var start = true;
 
 void setup() {
