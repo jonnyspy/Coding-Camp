@@ -7,10 +7,15 @@ function drawBlock(type,x,y) {
 			rect(x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
-		case 1:
+		case STONE:
 			noStroke();
 			fill(100,100,100);
 			rect(x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
+		
+		case PORTAL:
+			
+		break;
+		
 	}
 }

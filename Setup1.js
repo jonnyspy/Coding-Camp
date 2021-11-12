@@ -11,9 +11,14 @@ var playerXSpeed = 0;
 var playerYSpeed = 0;
 var keys = [];
 
-var AIR = 0;
+var AIR = 1;
 var PORTAL = 100;
 var WATER = 50;
+var STONE = 3;
+var DIRT = 2;
+var GRASS = 4;
+var REDPORTAL = 7;
+var LIMEPORTAL = 8;
 
 var portalLocations = [];
 

@@ -11,9 +11,10 @@ var playerXSpeed = 0;
 var playerYSpeed = 0;
 var keys = [];
 
-var AIR = 0;
+var AIR = 1;
 var PORTAL = 100;
 var WATER = 50;
+var STONE = 2;
 
 var portalLocations = [];
 
@@ -196,11 +197,16 @@ function drawBlock(type,x,y) {
 			rect(x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
-		case 1:
+		case STONE:
 			noStroke();
 			fill(100,100,100);
 			rect(x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
+		
+		case PORTAL:
+			
+		break;
+		
 	}
 }
 draw = function() {
