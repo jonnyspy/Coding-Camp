@@ -16,13 +16,19 @@ function drawPlayer() {
 	if (keys[UP] && isOnGround) {
 		playerYSpeed -= 3;
 	}
+	if (playerY < 0) {
+		playerY = 0;
+	}
 	
 	
 	if (playerYSpeed > 0) {
 		var playerXBlock = round(playerX/blockSize);
 		var playerYBlock = round(playerY/blockSize);
 		
-		if (field[playerYBlock+1][playerXBlock] != AIR) {
+		if (
+			field[playerYBlock+1][playerXBlock] != AIR &&
+			field[playerYBlock+1][playerXBlock] != FIRE
+		) {
 			playerYSpeed = 0;
 			playerY = playerYBlock*blockSize;
 			isOnGround = true;
@@ -37,7 +43,10 @@ function drawPlayer() {
 		var playerXBlock = round((playerX+blockSize/2)/blockSize);
 		var playerYBlock = round(playerY/blockSize);
 		
-		if (field[playerYBlock][playerXBlock] != AIR) {
+		if (
+			field[playerYBlock][playerXBlock] != AIR &&
+			field[playerYBlock][playerXBlock] != FIRE
+		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize-blockSize;
 		}
@@ -48,12 +57,17 @@ function drawPlayer() {
 		var playerXBlock = round((playerX-blockSize/2)/blockSize);
 		var playerYBlock = round(playerY/blockSize);
 		
-		if (field[playerYBlock][playerXBlock] != AIR) {
+		if (
+			field[playerYBlock][playerXBlock] != AIR &&
+			field[playerYBlock][playerXBlock] != FIRE
+		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize+blockSize;
 		}
+
 		
 	}
+
 
 	
 	

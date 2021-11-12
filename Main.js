@@ -9,6 +9,11 @@ PImage redPortal2;
 PImage redPortal3;
 PImage redPortal4;
 
+PImage greenPortal1;
+PImage greenPortal2;
+PImage greenPortal3;
+PImage greenPortal4;
+
 var room = 0;
 var blockSize = 8;
 
@@ -24,15 +29,20 @@ var STONELIGHT = 3;
 var DIRT = 2;
 var GRASS = 4;
 var REDPORTAL = 7;
-var LIMEPORTAL = 8;
+var GREENPORTAL = 8;
+var FIREBIG = 10;
+var FIRESMALL = 9;
 
-var portalLocations = [];
+
+var redPortalLocation = [];
 
 var viewDistance = 20;
 
 var isOnGround = true;
 
-var redPortalFrame = 0;
+var redPortalFrame = -0.5;
+var greenPortalFrame = -0.5;
+var start = true;
 
 void setup() {
 	size(1000,512);
@@ -43,10 +53,7 @@ void setup() {
 	stoneLight = loadImage("Sprites/stone1_best.png");
 	grass = loadImage("Sprites/grass_better.png");
 	
-	redPortal1 = loadImage("Sprites/Portal_1.png");
-	redPortal2 = loadImage("Sprites/Portal_2.png");
-	redPortal3 = loadImage("Sprites/Portal_3.png");
-	redPortal4 = loadImage("Sprites/Portal_4.png");
+	
 }
 
 void keyPressed() {
@@ -96,15 +103,15 @@ var rooms = [
 		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,4,4,4,4,4,2,2,2,4,4,4,1,1,1,1,1,1,1,1,1,1,9,9,9,9,9,9,1,1,1,1,1,1,1,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
 		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,2,2,2,2,2,2,2,2,2,2,4,4,4,1,1,1,1,1,1,1,1,10,10,10,9,10,10,10,1,1,1,1,1,1,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
 		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,4,4,4,1,1,1,1,1,1,1,3,10,10,10,10,10,3,1,1,1,1,1,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
-		[4,4,4,4,4,4,1,1,1,1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,1,1,1,1,3,3,3,3,3,1,1,1,1,4,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
-		[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,2,2,2,2,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
+		[4,4,4,4,4,4,1,1,1,1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,1,1,1,1,3,3,3,3,3,3,3,3,3,4,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
+		[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,2,2,2,2,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
 		[2,2,2,2,2,2,4,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
 		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
 		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
 		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,],
 		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,],
-		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,6,6,6,6,1,1,1,3,3,3,3,3,3,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,],
-		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,6,6,6,6,6,1,1,3,3,3,3,3,3,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,],
+		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,6,6,6,6,1,1,3,3,3,3,3,3,3,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,],
+		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,6,6,6,6,1,1,3,3,3,3,3,3,3,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,],
 		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,6,6,6,6,6,6,6,3,3,3,3,6,6,6,6,6,6,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,],
 		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,6,6,6,6,6,6,2,2,2,2,6,6,6,6,6,6,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,],
 		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,6,6,6,6,6,2,2,2,2,2,6,6,6,6,6,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,],
@@ -167,13 +174,20 @@ function drawPlayer() {
 	if (keys[UP] && isOnGround) {
 		playerYSpeed -= 3;
 	}
+	if (playerY < 0) {
+		playerY = 0;
+	}
 	
 	
 	if (playerYSpeed > 0) {
 		var playerXBlock = round(playerX/blockSize);
 		var playerYBlock = round(playerY/blockSize);
 		
-		if (field[playerYBlock+1][playerXBlock] != AIR) {
+		if (
+			field[playerYBlock+1][playerXBlock] != AIR &&
+			field[playerYBlock+1][playerXBlock] != FIREBIG && 
+			field[playerYBlock+1][playerXBlock] != FIRESMALL
+		) {
 			playerYSpeed = 0;
 			playerY = playerYBlock*blockSize;
 			isOnGround = true;
@@ -188,7 +202,11 @@ function drawPlayer() {
 		var playerXBlock = round((playerX+blockSize/2)/blockSize);
 		var playerYBlock = round(playerY/blockSize);
 		
-		if (field[playerYBlock][playerXBlock] != AIR) {
+		if (
+			field[playerYBlock][playerXBlock] != AIR &&
+			field[playerYBlock][playerXBlock] != FIREBIG && 
+			field[playerYBlock][playerXBlock] != FIRESMALL
+		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize-blockSize;
 		}
@@ -199,12 +217,18 @@ function drawPlayer() {
 		var playerXBlock = round((playerX-blockSize/2)/blockSize);
 		var playerYBlock = round(playerY/blockSize);
 		
-		if (field[playerYBlock][playerXBlock] != AIR) {
+		if (
+			field[playerYBlock][playerXBlock] != AIR &&
+			field[playerYBlock][playerXBlock] != FIREBIG && 
+			field[playerYBlock][playerXBlock] != FIRESMALL
+		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize+blockSize;
 		}
+
 		
 	}
+
 
 	
 	
@@ -212,9 +236,7 @@ function drawPlayer() {
 function drawBlock(type,x,y) {
 	switch(type) {
 		case AIR:
-			noStroke();
-			fill(100,150,255);
-			rect(x*blockSize,y*blockSize,blockSize,blockSize);
+
 		break;
 		
 		case DIRT:
@@ -224,19 +246,38 @@ function drawBlock(type,x,y) {
 		
 		case REDPORTAL:
 			if (round(redPortalFrame) == 0) {
-				image(redPortal1,x*blockSize,y*blockSize);
+				image(redPortal1,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
 			}
 			if (round(redPortalFrame) == 1) {
-				image(redPortal2,x*blockSize,y*blockSize);
+				image(redPortal2,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
 			}
 			if (round(redPortalFrame) == 2) {
-				image(redPortal3,x*blockSize,y*blockSize);
+				image(redPortal3,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
 			}
 			if (round(redPortalFrame) == 3) {
-				image(redPortal4,x*blockSize,y*blockSize);
+				image(redPortal4,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
 			}
-			if (redPortalFrame > 3) {
-				redPortalFrame = 0;
+			if (redPortalFrame > 3.5) {
+				redPortalFrame = -0.5;
+			}
+			
+		break;
+		
+		case GREENPORTAL:
+			if (round(greenPortalFrame) == 0) {
+				image(greenPortal1,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(greenPortalFrame) == 1) {
+				image(greenPortal2,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(greenPortalFrame) == 2) {
+				image(greenPortal3,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(greenPortalFrame) == 3) {
+				image(greenPortal4,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (greenPortalFrame > 3.5) {
+				greenPortalFrame = -0.5;
 			}
 			
 		break;
@@ -258,8 +299,11 @@ function drawBlock(type,x,y) {
 	}
 }
 draw = function() {
-	background(0,0,0);
+	background(0,120,255);
+	
+	
 	redPortalFrame += 0.02;
+	greenPortalFrame += 0.02;
 	
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);
@@ -269,9 +313,30 @@ draw = function() {
 		for(var j = 0; j < field[i].length; j += 1) {
 			if (dist(playerFieldX,0,j,0) < viewDistance && dist(playerFieldY,0,i,0) < viewDistance) {
 				drawBlock(field[i][j],j,i);
+				if (field[i][j] == REDPORTAL) {
+					redPortalLocation = [i, j]
+					
+				}
 			}
 		}
 	}
+	
+	
+	if(start) {
+		redPortal1 = loadImage("Sprites/Portal 1.png");
+		redPortal2 = loadImage("Sprites/Portal 2.png");
+		redPortal3 = loadImage("Sprites/Portal 3.png");
+		redPortal4 = loadImage("Sprites/Portal 4.png");
+		greenPortal1 = loadImage("Sprites/Green 1.png");
+		greenPortal2 = loadImage("Sprites/Green 2.png");
+		greenPortal3 = loadImage("Sprites/Green 3.png");
+		greenPortal4 = loadImage("Sprites/Green 4.png");
+		
+	}
+	start = false;
 
 	drawPlayer();
+	
+	
+	
 };
