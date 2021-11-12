@@ -28,7 +28,9 @@ function drawPlayer() {
 		if (
 			field[playerYBlock+1][playerXBlock] != AIR &&
 			field[playerYBlock+1][playerXBlock] != FIRE &&
-			field[playerYBlock+1][playerXBlock] != CAVEWALL
+			field[playerYBlock+1][playerXBlock] != CAVEWALL &&
+			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
+			field[playerYBlock][playerXBlock] != DARKESTCAVEWALL
 		) {
 			playerYSpeed = 0;
 			playerY = playerYBlock*blockSize;
@@ -47,7 +49,9 @@ function drawPlayer() {
 		if (
 			field[playerYBlock][playerXBlock] != AIR &&
 			field[playerYBlock][playerXBlock] != FIRE &&
-			field[playerYBlock][playerXBlock] != CAVEWALL
+			field[playerYBlock][playerXBlock] != CAVEWALL &&
+			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
+			field[playerYBlock][playerXBlock] != DARKESTCAVEWALL
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize-blockSize;
@@ -62,7 +66,9 @@ function drawPlayer() {
 		if (
 			field[playerYBlock][playerXBlock] != AIR &&
 			field[playerYBlock][playerXBlock] != FIRE &&
-			field[playerYBlock][playerXBlock] != CAVEWALL
+			field[playerYBlock][playerXBlock] != CAVEWALL &&
+			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
+			field[playerYBlock][playerXBlock] != DARKESTCAVEWALL
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize+blockSize;
@@ -70,8 +76,13 @@ function drawPlayer() {
 
 		
 	}
-	
-	
+	for(var i = 0; i < portalLocations.length; i += 1) {
+		if (dist(portalLocations[i][1],portalLocations[i][0],playerX,playerY) < 3*blockSize) {
+			room += 1;
+			
+			toPortal = true;
+		}
+	}
 	
 
 

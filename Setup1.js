@@ -10,6 +10,8 @@ PImage redPortal3;
 PImage redPortal4;
 PImage fire1;
 PImage fire2;
+PImage caveWall1;
+PImage caveWall2;
 
 var room = 0;
 var blockSize = 8;
@@ -29,10 +31,14 @@ var REDPORTAL = 7;
 var GREENPORTAL = 8;
 var FIRE = 9;
 var CAVEWALL = 11;
+var DARKCAVEWALL = 15;
+var DARKESTCAVEWALL = 17;
+
+var toPortal = true;
 
 
-var redPortalLocation = [];
-var greenPortalLocation = [];
+var portalLocations = [];
+
 
 var viewDistance = 20;
 
@@ -51,6 +57,8 @@ void setup() {
 	dirt = loadImage("Sprites/dirt_better.png");
 	stoneLight = loadImage("Sprites/stone1_best.png");
 	grass = loadImage("Sprites/grass_better.png");
+	caveWall1 = loadImage("Sprites/cave_back.png");
+	caveWall2 = loadImage("Sprites/cave_back2.png");
 }
 
 void keyPressed() {

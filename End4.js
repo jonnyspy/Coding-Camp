@@ -16,28 +16,28 @@ draw = function() {
 			if (dist(playerFieldX,0,j,0) < viewDistance && dist(playerFieldY,0,i,0) < viewDistance) {
 				drawBlock(field[i][j],j,i);
 				
-				if (field[i][j] == REDPORTAL) {
-					redPortalLocation = [i*blockSize, j*blockSize]
-				}
-				if (field[i][j] == GREENPORTAL) {
-					greenPortalLocation = [i*blockSize, j*blockSize]
-				}
+			}
+			if (field[i][j] == REDPORTAL ||
+				field[i][j] == GREENPORTAL
+				
+			) {
+				portalLocations[portalLocations.length] = [j*blockSize, i*blockSize];
 			}
 		}
 	}
-	
-	if (dist(redPortalLocation[1],redPortalLocation[0],playerX,playerY) < 3*blockSize) {
-		room += 1;
-		for(var i = 0; i < field.length; i += 1) {
-			for(var j = 0; j < field[i].length; j += 1) {
-				if (field[i][j] == REDPORTAL) {
-					redPortalLocation = [i*blockSize, j*blockSize]
-				}
+
+	if (toPortal) {
+		playerX = portalLocations[0][0]-blockSize/2;
+		playerY = portalLocations[0][1]+blockSize*3;
+		toPortal = false;
+		for(var i = 0; i < portalLocations.length; i += 1) {
+			if (dist(portalLocations[i][1],portalLocations[i][0],playerX,playerY) < 3*blockSize) {
+				room += 1;
+				
+				toPortal = true;
 			}
 		}
 	}
-	}
-	
 	
 	if(start) {
 		redPortal1 = loadImage("Sprites/Portal 1.png");

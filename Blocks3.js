@@ -70,6 +70,12 @@ function drawBlock(type,x,y) {
 			}
 		break;
 		
+		case DARKCAVEWALL:
+			image(caveWall1,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		case DARKESTCAVEWALL:
+			image(caveWall2,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
 
 		default:
 			fill(255,255,255);
