@@ -1,25 +1,29 @@
 
 //variables
 PImage dirt;
+PImage stoneLight;
+PImage grass;
 
 var room = 0;
 var blockSize = 8;
 
-var playerX = 0;
-var playerY = 0;
+var playerX = 500;
+var playerY = 200;
 var playerXSpeed = 0;
 var playerYSpeed = 0;
 var keys = [];
 
 var AIR = 1;
 var WATER = 50;
-var STONE = 3;
+var STONELIGHT = 3;
 var DIRT = 2;
 var GRASS = 4;
 var REDPORTAL = 7;
 var LIMEPORTAL = 8;
 
 var portalLocations = [];
+
+var viewDistance = 50;
 
 var isOnGround = true;
 
@@ -28,7 +32,9 @@ void setup() {
 	
 	//load images
 
-	dirt = loadImage("Sprites/Dirt.png");
+	dirt = loadImage("Sprites/dirt_better.png");
+	stoneLight = loadImage("Sprites/stone1_better.png");
+	grass = loadImage("Sprites/grass_better.png");
 }
 
 void keyPressed() {
@@ -199,21 +205,28 @@ function drawBlock(type,x,y) {
 			rect(x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
-		case STONE:
-			noStroke();
-			fill(100,100,100);
-			rect(x*blockSize,y*blockSize,blockSize,blockSize);
-			image(dirt,0,0);
+		case DIRT:
+
+			image(dirt,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
 		case LIMEPORTAL:
 			
 		break;
 		
-		//default:
-		//	fill(255,255,255);
-		//	stroke(255,0,0);
-		//	rect(x*blockSize,y*blockSize,blockSize,blockSize);
+		case STONELIGHT:
+			image(stoneLight,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		
+		case GRASS:
+			image(grass,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		
+
+		default:
+			fill(255,255,255);
+			stroke(255,0,0);
+			rect(x*blockSize,y*blockSize,blockSize,blockSize);
 		
 	}
 }
@@ -221,23 +234,19 @@ draw = function() {
 	background(0,0,0);
 	
 	field = rooms[room];
+	var playerFieldX = round(playerX/blockSize);
+	var playerFieldY = round(playerY/blockSize);
 	
-	for(var i = 0; i < field.length; i += 1) {
-		for(var j = 0; j < field[i].length; j += 1) {
-			drawBlock(field[i][j],j,i);
-			//if (field[j][i] == LIMEPORTAL) {
-			//	portalLocations[portalLocations.length] = [i*blockSize,j*blockSize];
-			//}
-		}
-	}
-	
-	for(var i = 0; i < portalLocations.length; i += 1) {
-		for(var j = 0; j < portalLocations.length; j += 1) {
-			if (i == j && i != null) {
-				delete portalLocations[j];
+	for(var i = 0; i < viewDistance; i += 1) {
+		for(var j = 0; j < viewDistance; j += 1) {
+			if (i < height/blockSize && j < width/blockSize) {
+				drawBlock(field[(playerFieldY+i)-round(viewDistance/2)][(playerFieldX+j)-round(viewDistance/2)],(j+playerFieldX)-viewDistance/2,(i+playerFieldY)-viewDistance/2);
 			}
+
 		}
 	}
+	
+	
 	
 
 	drawPlayer();

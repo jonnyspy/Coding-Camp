@@ -1,25 +1,29 @@
 
 //variables
 PImage dirt;
+PImage stoneLight;
+PImage grass;
 
 var room = 0;
 var blockSize = 8;
 
-var playerX = 0;
-var playerY = 0;
+var playerX = 500;
+var playerY = 200;
 var playerXSpeed = 0;
 var playerYSpeed = 0;
 var keys = [];
 
 var AIR = 1;
 var WATER = 50;
-var STONE = 3;
+var STONELIGHT = 3;
 var DIRT = 2;
 var GRASS = 4;
 var REDPORTAL = 7;
 var LIMEPORTAL = 8;
 
 var portalLocations = [];
+
+var viewDistance = 50;
 
 var isOnGround = true;
 
@@ -28,7 +32,9 @@ void setup() {
 	
 	//load images
 
-	dirt = loadImage("Sprites/Dirt.png");
+	dirt = loadImage("Sprites/dirt_better.png");
+	stoneLight = loadImage("Sprites/stone1_better.png");
+	grass = loadImage("Sprites/grass_better.png");
 }
 
 void keyPressed() {

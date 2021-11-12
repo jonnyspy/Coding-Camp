@@ -7,21 +7,28 @@ function drawBlock(type,x,y) {
 			rect(x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
-		case STONE:
-			noStroke();
-			fill(100,100,100);
-			rect(x*blockSize,y*blockSize,blockSize,blockSize);
-			image(dirt,0,0);
+		case DIRT:
+
+			image(dirt,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
 		case LIMEPORTAL:
 			
 		break;
 		
-		//default:
-		//	fill(255,255,255);
-		//	stroke(255,0,0);
-		//	rect(x*blockSize,y*blockSize,blockSize,blockSize);
+		case STONELIGHT:
+			image(stoneLight,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		
+		case GRASS:
+			image(grass,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		
+
+		default:
+			fill(255,255,255);
+			stroke(255,0,0);
+			rect(x*blockSize,y*blockSize,blockSize,blockSize);
 		
 	}
 }
