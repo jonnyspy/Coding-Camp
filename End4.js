@@ -16,10 +16,10 @@ draw = function() {
 				drawBlock(field[i][j],j,i);
 				
 				if (field[i][j] == REDPORTAL) {
-					redPortalLocation = [i, j]
+					redPortalLocation = [i*blockSize, j*blockSize]
 				}
 				if (field[i][j] == GREENPORTAL) {
-					greenPortalLocation = [i, j]
+					greenPortalLocation = [i*blockSize, j*blockSize]
 				}
 			}
 		}
@@ -35,6 +35,8 @@ draw = function() {
 		greenPortal2 = loadImage("Sprites/Green 2.png");
 		greenPortal3 = loadImage("Sprites/Green 3.png");
 		greenPortal4 = loadImage("Sprites/Green 4.png");
+		fire1 = loadImage("Sprites/Fire 1.png");
+		fire2 = loadImage("Sprites/Fire 2.png");
 		
 	}
 	start = false;
