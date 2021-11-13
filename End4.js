@@ -45,7 +45,7 @@ draw = function() {
 		
 		room += 1;
 		
-		
+		field = rooms[room];
 	
 		for(var i = 0; i < field.length; i += 1) {
 			for(var j = 0; j < field[i].length; j += 1) {
