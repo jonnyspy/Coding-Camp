@@ -16,6 +16,8 @@ PImage greenPortal2;
 PImage greenPortal3;
 PImage greenPortal4;
 
+PImage playerFrame;
+
 PImage water1;
 PImage water2;
 
@@ -135,6 +137,7 @@ void setup() {
 	bloodTreeWood = loadImage("Sprites/blood_trunk.png");
 	cloud = loadImage("Sprites/cloud.png");
 	bloodLeaf = loadImage("Sprites/blood leaf.png");
+	playerFrame = loadImage("Sprites/player.png");
 }
 
 void keyPressed() {
