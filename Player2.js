@@ -30,8 +30,8 @@ function drawPlayer() {
 	if (keys[UP] && isOnGround) {
 		playerYSpeed -= 4;
 	}
-	if (playerY < 0) {
-		playerY = 0;
+	if (playerY < blockSize) {
+		playerY = blockSize;
 	}
 	
 	
