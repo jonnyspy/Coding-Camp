@@ -10,6 +10,7 @@ draw = function() {
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);
 	var playerFieldY = round(playerY/blockSize);
+	portalLocations = [];
 	
 	for(var i = 0; i < field.length; i += 1) {
 		for(var j = 0; j < field[i].length; j += 1) {
