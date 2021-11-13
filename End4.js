@@ -56,7 +56,7 @@ draw = function() {
 				) {
 					
 					playerX = j*blockSize-blockSize/2;
-					playerY = i*blockSize+blockSize*4;
+					playerY = i*blockSize+blockSize*3;
 
 					toPortal = false;
 				}

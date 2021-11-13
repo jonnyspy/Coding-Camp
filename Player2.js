@@ -52,6 +52,25 @@ function drawPlayer() {
 		isOnGround = false;
 	}
 	
+	if (playerYSpeed < 0) {
+		var playerXBlock = round(playerX/blockSize);
+		var playerYBlock = round(playerY/blockSize);
+		
+		if (
+			field[playerYBlock-1][playerXBlock] != AIR &&
+			field[playerYBlock-1][playerXBlock] != FIRE &&
+			field[playerYBlock-1][playerXBlock] != CAVEWALL &&
+			field[playerYBlock-1][playerXBlock] != DARKCAVEWALL &&
+			field[playerYBlock-1][playerXBlock] != DARKESTCAVEWALL &&
+			field[playerYBlock-1][playerXBlock] != WATER
+		) {
+			playerYSpeed = 0.1;
+
+
+		}
+		
+	}
+	
 	if (playerXSpeed > 0) {
 		var playerXBlock = round((playerX+blockSize/2)/blockSize);
 		var playerYBlock = round(playerY/blockSize);
