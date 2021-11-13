@@ -17,6 +17,9 @@ PImage greenPortal2;
 PImage greenPortal3;
 PImage greenPortal4;
 
+PImage water1;
+PImage water2;
+
 var room = 0;
 var blockSize = 8;
 
@@ -25,6 +28,7 @@ var playerY = 200;
 var playerXSpeed = 0;
 var playerYSpeed = 0;
 var keys = [];
+var gravity = 0.1;
 
 var AIR = 1;
 var WATER = 50;
@@ -32,6 +36,7 @@ var STONELIGHT = 3;
 var DIRT = 2;
 var GRASS = 4;
 var REDPORTAL = 7;
+var WATER = 6;
 var GREENPORTAL = 8;
 var FIRE = 9;
 var CAVEWALL = 11;
@@ -50,6 +55,7 @@ var isOnGround = true;
 
 var redPortalFrame = 0;
 var greenPortalFrame = 0;
+var waterFrame = 0;
 var fireFrame = 1;
 var start = true;
 

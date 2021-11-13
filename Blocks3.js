@@ -76,6 +76,19 @@ function drawBlock(type,x,y) {
 		case DARKESTCAVEWALL:
 			image(caveWall2,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
+		case WATER:
+			if (round(waterFrame) == 0) {
+				
+				image(water1,x*blockSize,y*blockSize,blockSize,blockSize)
+			}
+			if (round(waterFrame) == 1) {
+
+				image(water2,x*blockSize,y*blockSize,blockSize,blockSize);
+			}
+			if (waterFrame > 1) {
+				waterFrame = 0;
+			}
+		break;
 
 		default:
 			fill(255,255,255);

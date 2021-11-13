@@ -5,8 +5,17 @@ function drawPlayer() {
 	
 	playerX += playerXSpeed;
 	playerY += playerYSpeed;
-	playerYSpeed += 0.1
+	playerYSpeed += gravity;
 	
+	var playerXBlockM = round(playerX/blockSize);
+	var playerYBlockM = round(playerY/blockSize);
+	
+	if(field[playerYBlockM][playerXBlockM] == WATER) {
+		if (playerYSpeed > 0) {
+			playerYSpeed -= gravity/2;
+		}
+	}
+
 	if (keys[RIGHT] && playerXSpeed < 2) {
 		playerXSpeed += 0.1;
 	}
@@ -29,8 +38,9 @@ function drawPlayer() {
 			field[playerYBlock+1][playerXBlock] != AIR &&
 			field[playerYBlock+1][playerXBlock] != FIRE &&
 			field[playerYBlock+1][playerXBlock] != CAVEWALL &&
-			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
-			field[playerYBlock][playerXBlock] != DARKESTCAVEWALL
+			field[playerYBlock+1][playerXBlock] != DARKCAVEWALL &&
+			field[playerYBlock+1][playerXBlock] != DARKESTCAVEWALL &&
+			field[playerYBlock+1][playerXBlock] != WATER
 		) {
 			playerYSpeed = 0;
 			playerY = playerYBlock*blockSize;
@@ -51,7 +61,8 @@ function drawPlayer() {
 			field[playerYBlock][playerXBlock] != FIRE &&
 			field[playerYBlock][playerXBlock] != CAVEWALL &&
 			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
-			field[playerYBlock][playerXBlock] != DARKESTCAVEWALL
+			field[playerYBlock][playerXBlock] != DARKESTCAVEWALL &&
+			field[playerYBlock][playerXBlock] != WATER
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize-blockSize;
@@ -68,7 +79,8 @@ function drawPlayer() {
 			field[playerYBlock][playerXBlock] != FIRE &&
 			field[playerYBlock][playerXBlock] != CAVEWALL &&
 			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
-			field[playerYBlock][playerXBlock] != DARKESTCAVEWALL
+			field[playerYBlock][playerXBlock] != DARKESTCAVEWALL &&
+			field[playerYBlock][playerXBlock] != WATER
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize+blockSize;
@@ -90,6 +102,8 @@ function drawPlayer() {
 			toPortal = true;
 		}
 	}
+	
+	
 	
 
 

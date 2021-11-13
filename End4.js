@@ -6,6 +6,7 @@ draw = function() {
 	redPortalFrame += 0.02;
 	greenPortalFrame += 0.02;
 	fireFrame += 0.02;
+	waterFrame += 0.01;
 	
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);
@@ -14,7 +15,7 @@ draw = function() {
 	
 	for(var i = 0; i < field.length; i += 1) {
 		for(var j = 0; j < field[i].length; j += 1) {
-			if (dist(playerFieldX,0,j,0) < viewDistance && dist(playerFieldY,0,i,0) < viewDistance) {
+			if (dist(playerFieldX,playerFieldY,j,i) < viewDistance) {
 				drawBlock(field[i][j],j,i);
 				
 			}
@@ -22,6 +23,7 @@ draw = function() {
 				field[i][j] == GREENPORTAL
 				
 			) {
+				
 				portalLocations[portalLocations.length] = [j*blockSize, i*blockSize];
 				
 			}
@@ -41,11 +43,26 @@ draw = function() {
 
 	if (toPortal) {
 		
-		playerX = portalLocations[0][0]-blockSize/2;
-		playerY = portalLocations[0][1]+blockSize*4;
-		
 		room += 1;
-		toPortal = false;
+		
+		
+	
+		for(var i = 0; i < field.length; i += 1) {
+			for(var j = 0; j < field[i].length; j += 1) {
+
+				if (field[i][j] == REDPORTAL ||
+					field[i][j] == GREENPORTAL
+					
+				) {
+					
+					playerX = j*blockSize-blockSize/2;
+					playerY = i*blockSize+blockSize*4;
+
+					toPortal = false;
+				}
+			}
+		}
+	
 		
 		
 	}
@@ -61,6 +78,8 @@ draw = function() {
 		greenPortal4 = loadImage("Sprites/Green 4.png");
 		fire1 = loadImage("Sprites/Fire 1.png");
 		fire2 = loadImage("Sprites/Fire 2.png");
+		water1 = loadImage("Sprites/0.png");
+		water2 = loadImage("Sprites/1.png");
 		
 	}
 	start = false;
