@@ -11,7 +11,6 @@ PImage redPortal4;
 PImage fire1;
 PImage fire2;
 PImage caveWall1;
-PImage caveWall2;
 PImage greenPortal1;
 PImage greenPortal2;
 PImage greenPortal3;
@@ -19,6 +18,10 @@ PImage greenPortal4;
 
 PImage water1;
 PImage water2;
+
+PImage stalagtite;
+PImage cactus;
+PImage rocks;
 
 var room = 0;
 var blockSize = 8;
@@ -86,7 +89,9 @@ void setup() {
 	stoneLight = loadImage("Sprites/stone1_best.png");
 	grass = loadImage("Sprites/grass_better.png");
 	caveWall1 = loadImage("Sprites/cave_back.png");
-	caveWall2 = loadImage("Sprites/cave_back2.png");
+	stalagtite = loadImage("Sprites/stalagtite.png");
+	cactus = loadImage("Sprites/Cactus.png");
+	rocks = loadImage("Sprites/cave_back2.png");
 }
 
 void keyPressed() {

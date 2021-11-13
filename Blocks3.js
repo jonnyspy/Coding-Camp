@@ -86,6 +86,14 @@ function drawBlock(type,x,y) {
 				waterFrame = 0;
 			}
 		break;
+		
+		case STALAGMITE:
+			image(stalagtite,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		
+		case CACTUS:
+			image(cactus,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
 
 		default:
 			fill(255,255,255);
