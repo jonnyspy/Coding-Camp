@@ -30,18 +30,36 @@ var playerYSpeed = 0;
 var keys = [];
 var gravity = 0.1;
 
-var AIR = 1;
+
 var WATER = 50;
-var STONELIGHT = 3;
+
+var AIR = 1;
 var DIRT = 2;
+var STONELIGHT = 3;
 var GRASS = 4;
-var REDPORTAL = 7;
+var BLUEPORTAL = 5;
 var WATER = 6;
+var REDPORTAL = 7;
 var GREENPORTAL = 8;
 var FIRE = 9;
-var CAVEWALL = 11;
+var CAVEWALL = 10;
+var STALAGMITE = 11;
+var CAVEFLOOR = 12;
+var CLOUDS = 13;
+var LAVA = 14;
 var DARKCAVEWALL = 15;
-var DARKESTCAVEWALL = 17;
+var ASHANDSAND = 16;
+var BLOODLAKE = 17;
+var BLOODTREEWOOD = 18;
+var BLOODTREELEAF = 19;
+var SAND = 20;
+var CACTUS = 21;
+var TREEWALL = 22;
+var WOOD = 23;
+var LEAF = 24;
+var RUINEDPILLAR = 25;
+var SANDSTONE = 26;
+
 
 var toPortal = false;
 
