@@ -117,6 +117,11 @@ draw = function() {
 	}
 	cooldown -= 0.01;
 	
+	noFill();
+	stroke(0,0,0);
+	strokeWeight(1100);
+	ellipse(playerX,playerY,1500,1500);
+	
 	
 	
 	
