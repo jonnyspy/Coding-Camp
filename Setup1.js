@@ -35,6 +35,7 @@ var DARKCAVEWALL = 15;
 var DARKESTCAVEWALL = 17;
 
 var toPortal = false;
+var porting = false;
 
 
 var portalLocations = [];

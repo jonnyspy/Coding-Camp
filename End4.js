@@ -10,7 +10,12 @@ draw = function() {
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);
 	var playerFieldY = round(playerY/blockSize);
-	
+	if (toPortal) {
+		room += 1;
+		
+		
+	}
+	portalLocations = [];
 	for(var i = 0; i < field.length; i += 1) {
 		for(var j = 0; j < field[i].length; j += 1) {
 			if (dist(playerFieldX,0,j,0) < viewDistance && dist(playerFieldY,0,i,0) < viewDistance) {
@@ -21,18 +26,26 @@ draw = function() {
 				field[i][j] == GREENPORTAL
 				
 			) {
-				portalLocations[portalLocations.length] = [j*blockSize, i*blockSize];
 				
+				portalLocations[portalLocations.length] = [j*blockSize, i*blockSize];
 			}
 		}
 	}
-
-	if (toPortal) {
+	text(toPortal,500,500);
+	text(portalLocations,500,400);
+	text(round(playerX) + ", " + round(playerY),500,450);
+	
+	for(var i = 0; i < portalLocations.length; i += 1) {
+		text(portalLocations[i],300,10+i*12);
 		
+	}
+
+	
+	if (toPortal) {
 		playerX = portalLocations[0][0]-blockSize/2;
 		playerY = portalLocations[0][1]+blockSize*4;
 		
-		room += 1;
+		
 		toPortal = false;
 		
 		
