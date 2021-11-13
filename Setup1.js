@@ -12,6 +12,10 @@ PImage fire1;
 PImage fire2;
 PImage caveWall1;
 PImage caveWall2;
+PImage greenPortal1;
+PImage greenPortal2;
+PImage greenPortal3;
+PImage greenPortal4;
 
 var room = 0;
 var blockSize = 8;
