@@ -1,7 +1,7 @@
-
+var music = new Audio("https://cdn.discordapp.com/attachments/906018721733160992/908893659552948284/viking_blues_-_111221_6.36_PM.m4a");
 draw = function() {
 	background(0,120,255);
-	
+	music.play();
 	
 	redPortalFrame += 0.02;
 	greenPortalFrame += 0.02;
