@@ -94,7 +94,31 @@ function drawBlock(type,x,y) {
 		case CACTUS:
 			image(cactus,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
-
+		
+		case CAVEWALL:
+			image(cavewall,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		
+		case SAND:
+			image(sand,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		case WOOD:
+			image(wood,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		case TREEWALL:
+			image(woodWall,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		case LAVA:
+			image(lava,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		case SANDSTONE:
+			image(sandstone,x*blockSize,y*blockSize,blockSize,blockSize);
+			
+		break;
+		
+		case RUINEDPILLAR:
+			image(ruinPillar,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
 		default:
 			fill(255,255,255);
 			stroke(255,0,0);

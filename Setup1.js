@@ -22,6 +22,13 @@ PImage water2;
 PImage stalagtite;
 PImage cactus;
 PImage rocks;
+PImage sand;
+PImage wood;
+PImage woodWall;
+PImage lava;
+PImage ash;
+PImage sandstone;
+PImage ruinPillar;
 
 var room = 0;
 var blockSize = 8;
@@ -91,7 +98,15 @@ void setup() {
 	caveWall1 = loadImage("Sprites/cave_back.png");
 	stalagtite = loadImage("Sprites/stalagtite.png");
 	cactus = loadImage("Sprites/Cactus.png");
-	rocks = loadImage("Sprites/cave_back2.png");
+	rocks = loadImage("Sprites/stone1_best.png");
+	cavewall = loadImage("Sprites/cave_back2.png");
+	sand = loadImage("Sprites/sand.png");
+	wood = loadImage("Sprites/wood.png");
+	woodWall = loadImage("Sprites/wood_wall.png");
+	lava = loadImage("Sprites/Lava.png");
+	ash = loadImage("Sprites/ash.png");
+	sandstone = loadImage("Sprites/sandstone.png");
+	ruinPillar = loadImage("Sprites/ruin.png");
 }
 
 void keyPressed() {

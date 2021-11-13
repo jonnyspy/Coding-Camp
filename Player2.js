@@ -39,7 +39,8 @@ function drawPlayer() {
 			field[playerYBlock+1][playerXBlock] != FIRE &&
 			field[playerYBlock+1][playerXBlock] != CAVEWALL &&
 			field[playerYBlock+1][playerXBlock] != DARKCAVEWALL &&
-			field[playerYBlock+1][playerXBlock] != WATER
+			field[playerYBlock+1][playerXBlock] != WATER &&
+			field[playerYBlock-1][playerXBlock] != TREEWALL
 		) {
 			playerYSpeed = 0;
 			playerY = playerYBlock*blockSize;
@@ -60,7 +61,8 @@ function drawPlayer() {
 			field[playerYBlock-1][playerXBlock] != FIRE &&
 			field[playerYBlock-1][playerXBlock] != CAVEWALL &&
 			field[playerYBlock-1][playerXBlock] != DARKCAVEWALL &&
-			field[playerYBlock-1][playerXBlock] != WATER
+			field[playerYBlock-1][playerXBlock] != WATER &&
+			field[playerYBlock-1][playerXBlock] != TREEWALL
 		) {
 			playerYSpeed = 0.1;
 
@@ -78,7 +80,8 @@ function drawPlayer() {
 			field[playerYBlock][playerXBlock] != FIRE &&
 			field[playerYBlock][playerXBlock] != CAVEWALL &&
 			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
-			field[playerYBlock][playerXBlock] != WATER
+			field[playerYBlock][playerXBlock] != WATER &&
+			field[playerYBlock-1][playerXBlock] != TREEWALL
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize-blockSize;
@@ -95,7 +98,8 @@ function drawPlayer() {
 			field[playerYBlock][playerXBlock] != FIRE &&
 			field[playerYBlock][playerXBlock] != CAVEWALL &&
 			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
-			field[playerYBlock][playerXBlock] != WATER
+			field[playerYBlock][playerXBlock] != WATER &&
+			field[playerYBlock-1][playerXBlock] != TREEWALL
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize+blockSize;

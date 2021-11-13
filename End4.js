@@ -44,7 +44,7 @@ draw = function() {
 	if (toPortal) {
 		
 		room += 1;
-		
+		playerYSpeed = 0;
 		field = rooms[room];
 	
 		for(var i = 0; i < field.length; i += 1) {
