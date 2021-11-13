@@ -98,7 +98,7 @@ var toPortal = false;
 var portalLocations = [];
 
 
-var viewDistance = 20;
+var viewDistance = 30;
 
 var isOnGround = true;
 
