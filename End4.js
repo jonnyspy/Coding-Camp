@@ -43,10 +43,14 @@ draw = function() {
 	//	
 	// }
 
-	if (toPortal) {
+	if (toPortal && cooldown <= 0) {
 		
 		room += 1;
+		if (room >= rooms.length- 1) {
+			room = 0;
+		}
 		playerYSpeed = 0;
+		
 		field = rooms[room];
 	
 		for(var i = 0; i < field.length; i += 1) {
@@ -65,10 +69,11 @@ draw = function() {
 				}
 			}
 		}
-	
 		
+		cooldown = 3;
 		
 	}
+	cooldown -= 0.01;
 	
 	if(start) {
 		redPortal1 = loadImage("Sprites/Portal 1.png");

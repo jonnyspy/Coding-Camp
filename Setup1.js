@@ -29,6 +29,8 @@ PImage lava;
 PImage ash;
 PImage sandstone;
 PImage ruinPillar;
+PImage caveFloor;
+PImage bloodLake;
 
 PImage blue1;
 PImage blue2;
@@ -43,8 +45,11 @@ PImage blue10;
 PImage blue11;
 PImage blue12;
 
-PImage leaf;
+PImage cloud;
+PImage bloodTreeWood;
 
+PImage leaf;
+var cooldown = 0;
 var room = 0;
 var blockSize = 8;
 
@@ -124,6 +129,10 @@ void setup() {
 	sandstone = loadImage("Sprites/sandstone.png");
 	ruinPillar = loadImage("Sprites/ruin.png");
 	leaf = loadImage("Sprites/leaf.png");
+	caveFloor = loadImage("Sprites/stone2_betterererer.png");
+	bloodLake = loadImage("Sprites/blood lake.png");
+	bloodTreeWood = loadImage("Sprites/blood_trunk.png");
+	cloud = loadImage("Sprites/cloud.png");
 }
 
 void keyPressed() {

@@ -164,6 +164,21 @@ function drawBlock(type,x,y) {
 		case RUINEDPILLAR:
 			image(ruinPillar,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
+		case CAVEFLOOR:
+			image(caveFloor,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		case BLOODLAKE:
+			image(bloodLake,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		case BLOODTREEWOOD:
+			image(bloodTreeWood,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		case ASHANDSAND:
+			image(ash,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		case CLOUDS:
+			image(cloud,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
 		default:
 			fill(255,255,255);
 			stroke(255,0,0);

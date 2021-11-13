@@ -23,7 +23,7 @@ function drawPlayer() {
 		playerXSpeed -= 0.1;
 	}
 	if (keys[UP] && isOnGround) {
-		playerYSpeed -= 3;
+		playerYSpeed -= 4;
 	}
 	if (playerY < 0) {
 		playerY = 0;
@@ -42,7 +42,11 @@ function drawPlayer() {
 			field[playerYBlock+1][playerXBlock] != WATER &&
 			field[playerYBlock+1][playerXBlock] != TREEWALL &&
 			field[playerYBlock+1][playerXBlock] != LAVA &&
-			field[playerYBlock+1][playerXBlock] != LEAF
+			field[playerYBlock+1][playerXBlock] != LEAF &&
+			field[playerYBlock+1][playerXBlock] != RUINEDPILLAR &&
+			field[playerYBlock+1][playerXBlock] != BLOODLAKE &&
+			field[playerYBlock+1][playerXBlock] != BLOODTREEWOOD &&
+			field[playerYBlock+1][playerXBlock] != CLOUDS
 		) {
 			playerYSpeed = 0;
 			playerY = playerYBlock*blockSize;
@@ -66,7 +70,11 @@ function drawPlayer() {
 			field[playerYBlock-1][playerXBlock] != WATER &&
 			field[playerYBlock-1][playerXBlock] != TREEWALL &&
 			field[playerYBlock-1][playerXBlock] != LAVA &&
-			field[playerYBlock-1][playerXBlock] != LEAF
+			field[playerYBlock-1][playerXBlock] != LEAF &&
+			field[playerYBlock-1][playerXBlock] != RUINEDPILLAR &&
+			field[playerYBlock-1][playerXBlock] != BLOODLAKE &&
+			field[playerYBlock-1][playerXBlock] != BLOODTREEWOOD &&
+			field[playerYBlock-1][playerXBlock] != CLOUDS
 		) {
 			playerYSpeed = 0.1;
 
@@ -87,7 +95,11 @@ function drawPlayer() {
 			field[playerYBlock][playerXBlock] != WATER &&
 			field[playerYBlock][playerXBlock] != TREEWALL &&
 			field[playerYBlock][playerXBlock] != LAVA &&
-			field[playerYBlock][playerXBlock] != LEAF
+			field[playerYBlock][playerXBlock] != LEAF &&
+			field[playerYBlock][playerXBlock] != RUINEDPILLAR &&
+			field[playerYBlock][playerXBlock] != BLOODLAKE &&
+			field[playerYBlock][playerXBlock] != BLOODTREEWOOD &&
+			field[playerYBlock][playerXBlock] != CLOUDS
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize-blockSize;
@@ -107,7 +119,11 @@ function drawPlayer() {
 			field[playerYBlock][playerXBlock] != WATER &&
 			field[playerYBlock][playerXBlock] != TREEWALL &&
 			field[playerYBlock][playerXBlock] != LAVA &&
-			field[playerYBlock][playerXBlock] != LEAF
+			field[playerYBlock][playerXBlock] != LEAF &&
+			field[playerYBlock][playerXBlock] != RUINEDPILLAR &&
+			field[playerYBlock][playerXBlock] != BLOODLAKE &&
+			field[playerYBlock][playerXBlock] != BLOODTREEWOOD &&
+			field[playerYBlock][playerXBlock] != CLOUDS
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize+blockSize;
@@ -127,6 +143,9 @@ function drawPlayer() {
 		
 		if (dist(portalLocations[i][0],portalLocations[i][1],playerX,playerY) < 3*blockSize) {
 			toPortal = true;
+		}
+		else{
+			toPortal = false;
 		}
 	}
 	
