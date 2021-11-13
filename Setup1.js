@@ -33,6 +33,9 @@ PImage sandstone;
 PImage ruinPillar;
 PImage caveFloor;
 PImage bloodLake;
+PImage bloodLake2;
+PImage bloodLake3;
+PImage bloodLake4;
 PImage bloodLeaf;
 
 PImage blue1;
@@ -107,6 +110,7 @@ var isOnGround = true;
 var redPortalFrame = 0;
 var greenPortalFrame = 0;
 var blueFrame = 0;
+var bloodFrame = 0;
 var waterFrame = 0;
 var fireFrame = 1;
 var start = true;
@@ -133,7 +137,7 @@ void setup() {
 	ruinPillar = loadImage("Sprites/ruin.png");
 	leaf = loadImage("Sprites/leaf.png");
 	caveFloor = loadImage("Sprites/stone2_betterererer.png");
-	bloodLake = loadImage("Sprites/blood lake.png");
+	
 	bloodTreeWood = loadImage("Sprites/blood_trunk.png");
 	cloud = loadImage("Sprites/cloud.png");
 	bloodLeaf = loadImage("Sprites/blood leaf.png");

@@ -168,7 +168,26 @@ function drawBlock(type,x,y) {
 			image(caveFloor,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		case BLOODLAKE:
-			image(bloodLake,x*blockSize,y*blockSize,blockSize,blockSize);
+			if (round(bloodFrame) == 0) {
+				
+				image(bloodLake,x*blockSize,y*blockSize,blockSize,blockSize)
+			}
+			if (round(bloodFrame) == 1) {
+
+				image(bloodLake2,x*blockSize,y*blockSize,blockSize,blockSize);
+			}
+			if (round(bloodFrame) == 2) {
+
+				image(bloodLake3,x*blockSize,y*blockSize,blockSize,blockSize);
+			}
+			if (round(bloodFrame) == 3) {
+
+				image(bloodLake4,x*blockSize,y*blockSize,blockSize,blockSize);
+			}
+			if (bloodFrame > 3) {
+				bloodFrame = 0;
+			}
+		
 		break;
 		case BLOODTREEWOOD:
 			image(bloodTreeWood,x*blockSize,y*blockSize,blockSize,blockSize);

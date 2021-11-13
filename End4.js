@@ -12,6 +12,7 @@ draw = function() {
 	fireFrame += 0.02;
 	waterFrame += 0.01;
 	blueFrame += 0.2;
+	bloodFrame += 0.01;
 	
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);
@@ -75,6 +76,11 @@ draw = function() {
 		blue10 = loadImage("Sprites/Blue 11.png");
 		blue11 = loadImage("Sprites/Blue 12.png");
 		blue12 = loadImage("Sprites/Blue 12.png");
+		
+		bloodLake = loadImage("Sprites/blood lake.png");
+		bloodLake2 = loadImage("Sprites/blood lake 2.png");
+		bloodLake3 = loadImage("Sprites/blood lake 3.png");
+		bloodLake4 = loadImage("Sprites/blood lake 4.png");
 		
 	}
 	start = false;
