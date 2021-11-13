@@ -140,14 +140,13 @@ function drawPlayer() {
 		//	round(dist(portalLocations[i][0],portalLocations[i][1],playerX,playerY)), 700, 100 + tempPos * 12);
 		//	tempPos++;
 		//}
-		
+
 		if (dist(portalLocations[i][0],portalLocations[i][1],playerX,playerY) < 3*blockSize) {
 			toPortal = true;
 		}
-		else{
-			toPortal = false;
-		}
+
 	}
+	
 	
 	
 	

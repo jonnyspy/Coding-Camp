@@ -179,6 +179,9 @@ function drawBlock(type,x,y) {
 		case CLOUDS:
 			image(cloud,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
+		case BLOODTREELEAF:
+			image(bloodLeaf,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
 		default:
 			fill(255,255,255);
 			stroke(255,0,0);

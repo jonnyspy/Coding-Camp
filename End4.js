@@ -22,7 +22,7 @@ draw = function() {
 			}
 			if (field[i][j] == REDPORTAL ||
 				field[i][j] == GREENPORTAL ||
-					field[i][j] == BLUEPORTAL 
+				field[i][j] == BLUEPORTAL 
 				
 			) {
 				
@@ -43,37 +43,7 @@ draw = function() {
 	//	
 	// }
 
-	if (toPortal && cooldown <= 0) {
-		
-		room += 1;
-		if (room >= rooms.length- 1) {
-			room = 0;
-		}
-		playerYSpeed = 0;
-		
-		field = rooms[room];
 	
-		for(var i = 0; i < field.length; i += 1) {
-			for(var j = 0; j < field[i].length; j += 1) {
-
-				if (field[i][j] == REDPORTAL ||
-					field[i][j] == GREENPORTAL ||
-					field[i][j] == BLUEPORTAL 
-					
-				) {
-					
-					playerX = j*blockSize-blockSize/2;
-					playerY = i*blockSize+blockSize*3;
-
-					toPortal = false;
-				}
-			}
-		}
-		
-		cooldown = 3;
-		
-	}
-	cooldown -= 0.01;
 	
 	if(start) {
 		redPortal1 = loadImage("Sprites/Portal 1.png");
@@ -104,8 +74,44 @@ draw = function() {
 		
 	}
 	start = false;
-
+	toPortal = false;
 	drawPlayer();
+	
+	if (toPortal) {
+		
+		
+		if(cooldown <= 0) {
+			room += 1;
+			if (room >= rooms.length- 1) {
+				room = 0;
+			}
+			field = rooms[room];
+			
+			playerYSpeed = 0;
+			cooldown = 3;
+			
+		
+			for(var i = 0; i < field.length; i += 1) {
+				for(var j = 0; j < field[i].length; j += 1) {
+
+					if (field[i][j] == REDPORTAL ||
+						field[i][j] == GREENPORTAL ||
+						field[i][j] == BLUEPORTAL 
+						
+					) {
+						
+						playerX = j*blockSize-blockSize/2;
+						playerY = i*blockSize+blockSize*3;
+
+						toPortal = false;
+					}
+					
+				}
+			}
+		}
+		
+	}
+	cooldown -= 0.01;
 	
 	
 	

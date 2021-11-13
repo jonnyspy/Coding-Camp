@@ -31,6 +31,7 @@ PImage sandstone;
 PImage ruinPillar;
 PImage caveFloor;
 PImage bloodLake;
+PImage bloodLeaf;
 
 PImage blue1;
 PImage blue2;
@@ -133,6 +134,7 @@ void setup() {
 	bloodLake = loadImage("Sprites/blood lake.png");
 	bloodTreeWood = loadImage("Sprites/blood_trunk.png");
 	cloud = loadImage("Sprites/cloud.png");
+	bloodLeaf = loadImage("Sprites/blood leaf.png");
 }
 
 void keyPressed() {
