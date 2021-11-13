@@ -15,6 +15,11 @@ function drawPlayer() {
 			playerYSpeed -= gravity/2;
 		}
 	}
+	
+	if(field[playerYBlockM][playerXBlockM] == FIRE) {
+		playerYSpeed -= 8;
+	}
+	
 
 	if (keys[RIGHT] && playerXSpeed < 2) {
 		playerXSpeed += 0.1;
