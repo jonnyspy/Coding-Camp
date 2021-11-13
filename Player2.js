@@ -40,7 +40,9 @@ function drawPlayer() {
 			field[playerYBlock+1][playerXBlock] != CAVEWALL &&
 			field[playerYBlock+1][playerXBlock] != DARKCAVEWALL &&
 			field[playerYBlock+1][playerXBlock] != WATER &&
-			field[playerYBlock-1][playerXBlock] != TREEWALL
+			field[playerYBlock+1][playerXBlock] != TREEWALL &&
+			field[playerYBlock+1][playerXBlock] != LAVA &&
+			field[playerYBlock+1][playerXBlock] != LEAF
 		) {
 			playerYSpeed = 0;
 			playerY = playerYBlock*blockSize;
@@ -62,7 +64,9 @@ function drawPlayer() {
 			field[playerYBlock-1][playerXBlock] != CAVEWALL &&
 			field[playerYBlock-1][playerXBlock] != DARKCAVEWALL &&
 			field[playerYBlock-1][playerXBlock] != WATER &&
-			field[playerYBlock-1][playerXBlock] != TREEWALL
+			field[playerYBlock-1][playerXBlock] != TREEWALL &&
+			field[playerYBlock-1][playerXBlock] != LAVA &&
+			field[playerYBlock-1][playerXBlock] != LEAF
 		) {
 			playerYSpeed = 0.1;
 
@@ -81,7 +85,9 @@ function drawPlayer() {
 			field[playerYBlock][playerXBlock] != CAVEWALL &&
 			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
 			field[playerYBlock][playerXBlock] != WATER &&
-			field[playerYBlock-1][playerXBlock] != TREEWALL
+			field[playerYBlock][playerXBlock] != TREEWALL &&
+			field[playerYBlock][playerXBlock] != LAVA &&
+			field[playerYBlock][playerXBlock] != LEAF
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize-blockSize;
@@ -99,7 +105,9 @@ function drawPlayer() {
 			field[playerYBlock][playerXBlock] != CAVEWALL &&
 			field[playerYBlock][playerXBlock] != DARKCAVEWALL &&
 			field[playerYBlock][playerXBlock] != WATER &&
-			field[playerYBlock-1][playerXBlock] != TREEWALL
+			field[playerYBlock][playerXBlock] != TREEWALL &&
+			field[playerYBlock][playerXBlock] != LAVA &&
+			field[playerYBlock][playerXBlock] != LEAF
 		) {
 			playerXSpeed = 0;
 			playerX = playerXBlock*blockSize+blockSize;

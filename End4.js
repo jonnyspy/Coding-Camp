@@ -7,6 +7,7 @@ draw = function() {
 	greenPortalFrame += 0.02;
 	fireFrame += 0.02;
 	waterFrame += 0.01;
+	blueFrame += 0.2;
 	
 	field = rooms[room];
 	var playerFieldX = round(playerX/blockSize);
@@ -20,7 +21,8 @@ draw = function() {
 				
 			}
 			if (field[i][j] == REDPORTAL ||
-				field[i][j] == GREENPORTAL
+				field[i][j] == GREENPORTAL ||
+					field[i][j] == BLUEPORTAL 
 				
 			) {
 				
@@ -51,7 +53,8 @@ draw = function() {
 			for(var j = 0; j < field[i].length; j += 1) {
 
 				if (field[i][j] == REDPORTAL ||
-					field[i][j] == GREENPORTAL
+					field[i][j] == GREENPORTAL ||
+					field[i][j] == BLUEPORTAL 
 					
 				) {
 					
@@ -80,6 +83,19 @@ draw = function() {
 		fire2 = loadImage("Sprites/Fire 2.png");
 		water1 = loadImage("Sprites/0.png");
 		water2 = loadImage("Sprites/1.png");
+		
+		blue1 = loadImage("Sprites/Blue 1.png");
+		blue2 = loadImage("Sprites/Blue 2.png");
+		blue3 = loadImage("Sprites/Blue 3.png");
+		blue4 = loadImage("Sprites/Blue 4.png");
+		blue5 = loadImage("Sprites/Blue 5.png");
+		blue6 = loadImage("Sprites/Blue 6.png");
+		blue7 = loadImage("Sprites/Blue 7.png");
+		blue8 = loadImage("Sprites/Blue 8.png");
+		blue9 = loadImage("Sprites/Blue 9.png");
+		blue10 = loadImage("Sprites/Blue 11.png");
+		blue11 = loadImage("Sprites/Blue 12.png");
+		blue12 = loadImage("Sprites/Blue 12.png");
 		
 	}
 	start = false;

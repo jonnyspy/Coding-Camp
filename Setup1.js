@@ -30,6 +30,21 @@ PImage ash;
 PImage sandstone;
 PImage ruinPillar;
 
+PImage blue1;
+PImage blue2;
+PImage blue3;
+PImage blue4;
+PImage blue5;
+PImage blue6;
+PImage blue7;
+PImage blue8;
+PImage blue9;
+PImage blue10;
+PImage blue11;
+PImage blue12;
+
+PImage leaf;
+
 var room = 0;
 var blockSize = 8;
 
@@ -83,6 +98,7 @@ var isOnGround = true;
 
 var redPortalFrame = 0;
 var greenPortalFrame = 0;
+var blueFrame = 0;
 var waterFrame = 0;
 var fireFrame = 1;
 var start = true;
@@ -107,6 +123,7 @@ void setup() {
 	ash = loadImage("Sprites/ash.png");
 	sandstone = loadImage("Sprites/sandstone.png");
 	ruinPillar = loadImage("Sprites/ruin.png");
+	leaf = loadImage("Sprites/leaf.png");
 }
 
 void keyPressed() {

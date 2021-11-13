@@ -48,12 +48,57 @@ function drawBlock(type,x,y) {
 			
 		break;
 		
+		case BLUEPORTAL:
+			if (round(blueFrame) == 0) {
+				image(blue1,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 1) {
+				image(blue2,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 2) {
+				image(blue3,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 3) {
+				image(blue4,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 4) {
+				image(blue5,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 5) {
+				image(blue6,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 6) {
+				image(blue7,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 7) {
+				image(blue8,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 8) {
+				image(blue9,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 9) {
+				image(blue11,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+			if (round(blueFrame) == 10) {
+				image(blue12,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+			}
+
+			if (blueFrame > 10.4) {
+				blueFrame = -0.5;
+			}
+			
+		break;
+		
 		case STONELIGHT:
 			image(stoneLight,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
 		case GRASS:
 			image(grass,x*blockSize,y*blockSize,blockSize,blockSize);
+		break;
+		
+		case LEAF:
+			image(leaf,x*blockSize,y*blockSize,blockSize,blockSize);
 		break;
 		
 		case FIRE:
