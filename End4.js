@@ -86,7 +86,7 @@ draw = function() {
 		
 		if(cooldown <= 0) {
 			room += 1;
-			if (room >= rooms.length- 1) {
+			if (room >= rooms.length) {
 				room = 0;
 			}
 			field = rooms[room];
