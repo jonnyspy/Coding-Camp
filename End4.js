@@ -1,6 +1,10 @@
 var music = new Audio("https://cdn.discordapp.com/attachments/906018721733160992/908897768205086780/Untitled_-_111221_6.52_PM.m4a");
 draw = function() {
 	background(0,120,255);
+	
+	fill(0,0,0);
+	text(room,0,12);
+	
 	music.play();
 	
 	redPortalFrame += 0.02;
@@ -112,6 +116,8 @@ draw = function() {
 		
 	}
 	cooldown -= 0.01;
+	
+	
 	
 	
 	
