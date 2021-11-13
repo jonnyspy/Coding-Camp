@@ -27,6 +27,17 @@ draw = function() {
 			}
 		}
 	}
+	
+	// fill(255, 0, 0);
+	// var tempPos = 0;
+	// for (var i = 0; i < portalLocations.length; i++)
+	// {
+	//	if (dist(playerFieldX,0,portalLocations[i][1]/blockSize,0) < viewDistance && dist(playerFieldY,0,portalLocations[i][0]/blockSize,0) < viewDistance) {
+	//			text("" + portalLocations[i][0] + "," + portalLocations[i][1], 400, 112 + tempPos * 12);
+	//			tempPos++;
+	//		}
+	//	
+	// }
 
 	if (toPortal) {
 		
