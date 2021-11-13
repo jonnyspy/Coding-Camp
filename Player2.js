@@ -76,10 +76,8 @@ function drawPlayer() {
 
 		
 	}
-	for(var i = 0; i < portalLocations.length; i += 1) {
+	for(var i = 0; i < portalLocations.length-1; i += 1) {
 		if (dist(portalLocations[i][1],portalLocations[i][0],playerX,playerY) < 3*blockSize) {
-			room += 1;
-			
 			toPortal = true;
 		}
 	}

@@ -34,7 +34,7 @@ var CAVEWALL = 11;
 var DARKCAVEWALL = 15;
 var DARKESTCAVEWALL = 17;
 
-var toPortal = true;
+var toPortal = false;
 
 
 var portalLocations = [];

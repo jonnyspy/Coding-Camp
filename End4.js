@@ -22,21 +22,20 @@ draw = function() {
 				
 			) {
 				portalLocations[portalLocations.length] = [j*blockSize, i*blockSize];
+				
 			}
 		}
 	}
 
 	if (toPortal) {
+		
 		playerX = portalLocations[0][0]-blockSize/2;
-		playerY = portalLocations[0][1]+blockSize*3;
+		playerY = portalLocations[0][1]+blockSize*4;
+		
+		room += 1;
 		toPortal = false;
-		for(var i = 0; i < portalLocations.length; i += 1) {
-			if (dist(portalLocations[i][1],portalLocations[i][0],playerX,playerY) < 3*blockSize) {
-				room += 1;
-				
-				toPortal = true;
-			}
-		}
+		
+		
 	}
 	
 	if(start) {
