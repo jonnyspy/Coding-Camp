@@ -65,6 +65,7 @@ var playerXSpeed = 0;
 var playerYSpeed = 0;
 var keys = [];
 var gravity = 0.1;
+var health = 100;
 
 
 var WATER = 50;

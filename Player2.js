@@ -11,10 +11,17 @@ function drawPlayer() {
 	var playerXBlockM = round(playerX/blockSize);
 	var playerYBlockM = round(playerY/blockSize);
 	
-	if(field[playerYBlockM][playerXBlockM] == WATER) {
-		if (playerYSpeed > 0) {
-			playerYSpeed -= gravity/2;
-		}
+	if(field[playerYBlockM][playerXBlockM] == LAVA) {
+		health -= 1;
+	}
+	if(health < 0) {
+		
+		
+		playerX = 500;
+		playerY = 200;
+		room = 0;
+		health = 100;
+		
 	}
 	
 	if(field[playerYBlockM][playerXBlockM] == FIRE) {

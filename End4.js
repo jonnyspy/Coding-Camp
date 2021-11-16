@@ -129,7 +129,11 @@ draw = function() {
 	ellipse(playerX,playerY,1500,1500);
 	
 	
-	
+	//player healthbar
+	fill(255,0,0);
+	stroke(0,0,0);
+	strokeWeight(1);
+	rect(10,10,health,20);
 	
 	
 };
