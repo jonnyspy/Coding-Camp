@@ -10,6 +10,33 @@ function drawPlayer() {
 	
 	var playerXBlockM = round(playerX/blockSize);
 	var playerYBlockM = round(playerY/blockSize);
+	var mouseXBlock = round(mouseX/blockSize);
+	var mouseYBlock = round(mouseY/blockSize);
+	
+	if (mousePressed) {
+		if (mouseButton == RIGHT) {
+			field[mouseYBlock][mouseXBlock] = AIR;
+			field[mouseYBlock-1][mouseXBlock] = AIR;
+			field[mouseYBlock+1][mouseXBlock] = AIR;
+			field[mouseYBlock][mouseXBlock-1] = AIR;
+			field[mouseYBlock][mouseXBlock+1] = AIR;
+			field[mouseYBlock-1][mouseXBlock-1] = AIR;
+			field[mouseYBlock+1][mouseXBlock+1] = AIR;
+			field[mouseYBlock-1][mouseXBlock+1] = AIR;
+			field[mouseYBlock+1][mouseXBlock-1] = AIR;
+		}
+		if (mouseButton == LEFT) {
+			field[mouseYBlock][mouseXBlock] = DIRT;
+			field[mouseYBlock-1][mouseXBlock] = DIRT;
+			field[mouseYBlock+1][mouseXBlock] = DIRT;
+			field[mouseYBlock][mouseXBlock-1] = DIRT;
+			field[mouseYBlock][mouseXBlock+1] = DIRT;
+			field[mouseYBlock-1][mouseXBlock-1] = DIRT;
+			field[mouseYBlock+1][mouseXBlock+1] = DIRT;
+			field[mouseYBlock-1][mouseXBlock+1] = DIRT;
+			field[mouseYBlock+1][mouseXBlock-1] = DIRT;
+		}
+	}
 	
 	if(field[playerYBlockM][playerXBlockM] == LAVA) {
 		health -= 1;

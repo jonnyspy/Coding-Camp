@@ -68,7 +68,6 @@ var gravity = 0.1;
 var health = 100;
 
 
-var WATER = 50;
 
 var AIR = 1;
 var DIRT = 2;
