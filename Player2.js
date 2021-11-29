@@ -53,6 +53,9 @@ function drawPlayer() {
 	
 	if(field[playerYBlockM][playerXBlockM] == FIRE) {
 		playerYSpeed -= 8;
+		if(health < 100) {
+			health += 10;
+		}
 	}
 	
 
