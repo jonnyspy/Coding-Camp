@@ -98,11 +98,7 @@ var SANDSTONE = 26;
 
 
 var toPortal = false;
-
-
 var portalLocations = [];
-
-
 var viewDistance = 30;
 
 var isOnGround = true;
@@ -114,6 +110,8 @@ var bloodFrame = 0;
 var waterFrame = 0;
 var fireFrame = 1;
 var start = true;
+
+var monsters = [];
 
 void setup() {
 	size(1000,512);

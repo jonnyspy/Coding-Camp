@@ -13,6 +13,7 @@ function drawPlayer() {
 	var mouseXBlock = round(mouseX/blockSize);
 	var mouseYBlock = round(mouseY/blockSize);
 	
+	//temp
 	if (mousePressed) {
 		if (mouseButton == RIGHT) {
 			field[mouseYBlock][mouseXBlock] = AIR;
@@ -57,7 +58,20 @@ function drawPlayer() {
 			health += 10;
 		}
 	}
-	
+	if(field[playerYBlockM][playerXBlockM] == WATER) {
+		if (playerYSpeed > 1) {
+			playerYSpeed = 1;
+		}
+		if (playerYSpeed < -2) {
+			playerYSpeed = -2;
+		}
+		if (playerXSpeed > 2) {
+			playerXSpeed = 2;
+		}
+		if (playerXSpeed < -2) {
+			playerXSpeed = -2;
+		}
+	}
 
 	if (keys[RIGHT] && playerXSpeed < 2) {
 		playerXSpeed += 0.1;
