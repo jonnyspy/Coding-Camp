@@ -50,7 +50,7 @@ function drawBlock(type,x,y) {
 		
 		case BLUEPORTAL:
 			if (round(blueFrame) == 0) {
-				image(blue1,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+				image(blue12,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
 			}
 			if (round(blueFrame) == 1) {
 				image(blue2,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
@@ -80,7 +80,7 @@ function drawBlock(type,x,y) {
 				image(blue11,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
 			}
 			if (round(blueFrame) == 10) {
-				image(blue12,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
+				image(blue1,x*blockSize-(blockSize*3),y*blockSize-(blockSize*3),blockSize*5,blockSize*7);
 			}
 
 			if (blueFrame > 10.4) {

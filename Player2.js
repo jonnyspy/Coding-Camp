@@ -58,18 +58,18 @@ function drawPlayer() {
 			health += 10;
 		}
 	}
-	if(field[playerYBlockM][playerXBlockM] == WATER) {
+	if(field[playerYBlockM][playerXBlockM] == WATER || field[playerYBlockM][playerXBlockM] == BLOODLAKE) {
 		if (playerYSpeed > 1) {
 			playerYSpeed = 1;
 		}
 		if (playerYSpeed < -2) {
 			playerYSpeed = -2;
 		}
-		if (playerXSpeed > 2) {
-			playerXSpeed = 2;
+		if (playerXSpeed > 1) {
+			playerXSpeed = 1;
 		}
-		if (playerXSpeed < -2) {
-			playerXSpeed = -2;
+		if (playerXSpeed < -1) {
+			playerXSpeed = -1;
 		}
 	}
 
