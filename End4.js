@@ -77,17 +77,20 @@ draw = function() {
 		bloodLake2 = loadImage("Sprites/blood lake 2.png");
 		bloodLake3 = loadImage("Sprites/blood lake 3.png");
 		bloodLake4 = loadImage("Sprites/blood lake 4.png");
+		start = false;
 		
 	}
-	start = false;
 	toPortal = false;
+	
 	drawPlayer();
 	
 	if (toPortal) {
 		
-		
 		if(cooldown <= 0) {
 			room += 1;
+			mob1 = [];
+			mob2 = [];
+			mobsPerRoom = numberOfMobs;
 			if (room >= rooms.length) {
 				room = 0;
 			}
@@ -134,13 +137,17 @@ draw = function() {
 	
 	//Mobs
 	if (mobsPerRoom > 0) {
-		mobs[1] = [randomAirBlock()[0],randomAirBlock[1]];
+		mob1[mob1.length] = [10,10];
+		
+		
+
+		mobsPerRoom -= 1;
 	}
 	
-	for(var i = 0; i < mobs1.length; i += 1) {
-		if (dist(playerFieldX,playerFieldY,mobs1[i][1],mobs1[i][0]) < viewDistance) {
-			mob1(i);
-		}
+	for(var i = 0; i < mob1.length; i += 1) {
+		//if (dist(playerFieldX,playerFieldY,mob1[i][0],mob1[i][1]) < viewDistance) {
+		Mob1(i);
+		//}
 	}
 	
 	

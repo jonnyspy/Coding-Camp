@@ -210,21 +210,21 @@ function drawBlock(type,x,y) {
 }
 
 function Mob1(i) {
-	//fill(255,0,0);
-	//rect(mob1[i][0],mob1[i][1],blockSize,blockSize);
+	fill(0,255,0);
+	rect(mob1[i][1],mob1[i][0],blockSize,blockSize);
 	
-	//if (mob1[i][0] > playerFieldX) {
-	//	mob1[i][0] += mob1Speed;
-	//}
-	//if (mob1[i][0] < playerFieldX) {
-	//	mob1[i][0] -= mob1Speed;
-	//}
-	//if (mob1[i][1] > playerFieldY) {
-	//	mob1[i][1] += mob1Speed;
-	//}
-	//if (mob1[i][1] < playerFieldY) {
-	//	mob1[i][1] -= mob1Speed;
-	//}
+	if (mob1[i][1] < playerX) {
+		mob1[i][1] += mob1Speed;
+	}
+	if (mob1[i][1] > playerX) {
+		mob1[i][1] -= mob1Speed;
+	}
+	if (mob1[i][0] < playerY) {
+		mob1[i][0] += mob1Speed;
+	}
+	if (mob1[i][0] > playerY) {
+		mob1[i][0] -= mob1Speed;
+	}
 }
 
 
@@ -238,14 +238,14 @@ function randomAirBlock() {
 	var i = round(random(0,field.length));
 	var j = round(random(0,field[i].length));
 
-			if (field[i][j] == AIR || 
-				field[i][j] == CAVEWALL ||
-				field[i][j] == DARKCAVEWALL ||
-				field[i][j] == TREEWALL ||
-				field[i][j] == RUINEDPILLAR
-				) {
-					return [i,j];
-			}
-		}
+	if (field[i][j] == AIR || 
+		field[i][j] == CAVEWALL ||
+		field[i][j] == DARKCAVEWALL ||
+		field[i][j] == TREEWALL ||
+		field[i][j] == RUINEDPILLAR
+		) {
+			return [i,j];
 	}
+
+
 }

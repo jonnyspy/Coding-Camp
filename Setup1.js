@@ -113,7 +113,8 @@ var start = true;
 var mob1 = [];
 var mob1Speed = 1;
 var mob2 = [];
-var mobsPerRoom = 3;
+var numberOfMobs = 3;
+var mobsPerRoom = 0;
 
 void setup() {
 	size(1000,512);
