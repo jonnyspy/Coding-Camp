@@ -96,6 +96,7 @@ var LEAF = 24;
 var RUINEDPILLAR = 25;
 var SANDSTONE = 26;
 
+var portalDrawLoc = [[],[]];
 
 var toPortal = false;
 var portalLocations = [];
@@ -111,7 +112,8 @@ var waterFrame = 0;
 var fireFrame = 1;
 var start = true;
 
-var monsters = [];
+var mob1 = [];
+var mob2 = [];
 
 void setup() {
 	size(1000,512);

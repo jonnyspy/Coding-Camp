@@ -208,3 +208,40 @@ function drawBlock(type,x,y) {
 		
 	}
 }
+
+function createMob1() {
+	
+}
+
+function Mob1() {
+	for(var i = 0; i < mob1.length; i += 1) {
+		
+	}
+}
+
+function createMob2() {
+
+}
+
+function Mob2() {
+	for(var i = 0; i < mob2.length; i += 1) {
+		
+	}
+}
+
+function randomAirBlock() {
+	for(var i = 0; i < field.length; i += 1) {
+		for(var j = 0; j < field[i].length; j += 1) {
+
+			if (field[i][j] == AIR || 
+				field[i][j] == CAVEWALL ||
+				field[i][j] == DARKCAVEWALL ||
+				field[i][j] == TREEWALL ||
+				field[i][j] == RUINEDPILLAR
+				) {
+					return [i,j];
+					
+			}
+		}
+	}
+}

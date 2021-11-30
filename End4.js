@@ -31,10 +31,15 @@ draw = function() {
 				
 			) {
 				
+				portalDrawLoc[portalDrawLoc.length] = [i, j];
 				portalLocations[portalLocations.length] = [j*blockSize, i*blockSize];
 				
 			}
 		}
+	}
+	
+	for(var i = 0; i < portalDrawLoc.length; i += 1) {
+		drawBlock(field[portalDrawLoc[0]][portalDrawLoc[1]],portalDrawLoc[1],portalDrawLoc[0]);
 	}
 
 
@@ -102,6 +107,7 @@ draw = function() {
 						
 						playerX = j*blockSize-blockSize/2;
 						playerY = i*blockSize+blockSize*3;
+						
 
 						toPortal = false;
 					}
@@ -121,7 +127,7 @@ draw = function() {
 	
 	//player healthbar
 	fill(255,0,0);
-	stroke(0,0,0);
+	noStroke();
 	strokeWeight(1);
 	rect(10,10,health,20);
 	
