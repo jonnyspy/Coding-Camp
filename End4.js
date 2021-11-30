@@ -132,5 +132,16 @@ draw = function() {
 	strokeWeight(1);
 	rect(10,10,health,20);
 	
+	//Mobs
+	if (mobsPerRoom > 0) {
+		mobs[1] = [randomAirBlock()[0],randomAirBlock[1]];
+	}
+	
+	for(var i = 0; i < mobs1.length; i += 1) {
+		if (dist(playerFieldX,playerFieldY,mobs1[i][1],mobs1[i][0]) < viewDistance) {
+			mob1(i);
+		}
+	}
+	
 	
 };

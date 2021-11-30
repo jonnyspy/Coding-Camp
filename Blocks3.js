@@ -209,19 +209,24 @@ function drawBlock(type,x,y) {
 	}
 }
 
-function createMob1() {
+function Mob1(i) {
+	//fill(255,0,0);
+	//rect(mob1[i][0],mob1[i][1],blockSize,blockSize);
 	
+	//if (mob1[i][0] > playerFieldX) {
+	//	mob1[i][0] += mob1Speed;
+	//}
+	//if (mob1[i][0] < playerFieldX) {
+	//	mob1[i][0] -= mob1Speed;
+	//}
+	//if (mob1[i][1] > playerFieldY) {
+	//	mob1[i][1] += mob1Speed;
+	//}
+	//if (mob1[i][1] < playerFieldY) {
+	//	mob1[i][1] -= mob1Speed;
+	//}
 }
 
-function Mob1() {
-	for(var i = 0; i < mob1.length; i += 1) {
-		
-	}
-}
-
-function createMob2() {
-
-}
 
 function Mob2() {
 	for(var i = 0; i < mob2.length; i += 1) {
@@ -230,8 +235,8 @@ function Mob2() {
 }
 
 function randomAirBlock() {
-	for(var i = 0; i < field.length; i += 1) {
-		for(var j = 0; j < field[i].length; j += 1) {
+	var i = round(random(0,field.length));
+	var j = round(random(0,field[i].length));
 
 			if (field[i][j] == AIR || 
 				field[i][j] == CAVEWALL ||
@@ -240,7 +245,6 @@ function randomAirBlock() {
 				field[i][j] == RUINEDPILLAR
 				) {
 					return [i,j];
-					
 			}
 		}
 	}

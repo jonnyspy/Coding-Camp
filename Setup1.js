@@ -67,8 +67,6 @@ var keys = [];
 var gravity = 0.1;
 var health = 100;
 
-
-
 var AIR = 1;
 var DIRT = 2;
 var STONELIGHT = 3;
@@ -113,7 +111,9 @@ var fireFrame = 1;
 var start = true;
 
 var mob1 = [];
+var mob1Speed = 1;
 var mob2 = [];
+var mobsPerRoom = 3;
 
 void setup() {
 	size(1000,512);
