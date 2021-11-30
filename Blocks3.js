@@ -210,21 +210,39 @@ function drawBlock(type,x,y) {
 }
 
 function Mob1(i) {
-	fill(0,255,0);
-	rect(mob1[i][1],mob1[i][0],blockSize,blockSize);
+	if (mob1[i] != []) {
+		playerFieldX = round(playerX/blockSize);
+		playerFieldY = round(playerY/blockSize);
+		fill(0,255,0);
+		rect(mob1[i][1],mob1[i][0],blockSize,blockSize);
+		
+		
+		if (dist(playerFieldX,playerFieldY,mob1[i][1],mob1[i][0]) < 5) {
+			health -= 1;
+		}
+		if (dist(playerFieldX,playerFieldY,mob1[i][1],mob1[i][0]) < 10) {
+			mob1[i][2] -= 4;
+			mob1[i][0] += random(-5,5);
+			alert("yes");
+		}
+		if (mob1[i][2] < 0) {
+			mob1[i] = [];
+		}
+			
+		if (mob1[i][1] < playerX) {
+			mob1[i][1] += mob1Speed;
+		}
+		if (mob1[i][1] > playerX) {
+			mob1[i][1] -= mob1Speed;
+		}
+		if (mob1[i][0] < playerY) {
+			mob1[i][0] += mob1Speed;
+		}
+		if (mob1[i][0] > playerY) {
+			mob1[i][0] -= mob1Speed;
+		}
+	}
 	
-	if (mob1[i][1] < playerX) {
-		mob1[i][1] += mob1Speed;
-	}
-	if (mob1[i][1] > playerX) {
-		mob1[i][1] -= mob1Speed;
-	}
-	if (mob1[i][0] < playerY) {
-		mob1[i][0] += mob1Speed;
-	}
-	if (mob1[i][0] > playerY) {
-		mob1[i][0] -= mob1Speed;
-	}
 }
 
 
@@ -232,20 +250,4 @@ function Mob2() {
 	for(var i = 0; i < mob2.length; i += 1) {
 		
 	}
-}
-
-function randomAirBlock() {
-	var i = round(random(0,field.length));
-	var j = round(random(0,field[i].length));
-
-	if (field[i][j] == AIR || 
-		field[i][j] == CAVEWALL ||
-		field[i][j] == DARKCAVEWALL ||
-		field[i][j] == TREEWALL ||
-		field[i][j] == RUINEDPILLAR
-		) {
-			return [i,j];
-	}
-
-
 }

@@ -122,7 +122,30 @@ draw = function() {
 		
 	}
 	cooldown -= 0.01;
+
 	
+	//Mobs
+	if (mobsPerRoom > 0) {
+		var xPos = round(random(0,field.length));
+		var yPos = round(random(0,field[0].length));
+		
+		if (field[xPos][yPos] == AIR || 
+			field[xPos][yPos] == CAVEWALL ||
+			field[xPos][yPos] == DARKCAVEWALL ||
+			field[xPos][yPos] == TREEWALL ||
+			field[xPos][yPos] == RUINEDPILLAR
+		) {
+			mob1[mob1.length] = [xPos*blockSize,yPos*blockSize,10];
+			mobsPerRoom -= 1;
+		}
+		
+	}
+	
+	for(var i = 0; i < mob1.length; i += 1) {
+		Mob1(i);
+	}
+	
+	//blackness
 	noFill();
 	stroke(0,0,0);
 	strokeWeight(1100);
@@ -134,21 +157,6 @@ draw = function() {
 	noStroke();
 	strokeWeight(1);
 	rect(10,10,health,20);
-	
-	//Mobs
-	if (mobsPerRoom > 0) {
-		mob1[mob1.length] = [10,10];
-		
-		
-
-		mobsPerRoom -= 1;
-	}
-	
-	for(var i = 0; i < mob1.length; i += 1) {
-		//if (dist(playerFieldX,playerFieldY,mob1[i][0],mob1[i][1]) < viewDistance) {
-		Mob1(i);
-		//}
-	}
 	
 	
 };
