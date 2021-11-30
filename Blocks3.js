@@ -213,34 +213,32 @@ function Mob1(i) {
 	if (mob1[i] != []) {
 		playerFieldX = round(playerX/blockSize);
 		playerFieldY = round(playerY/blockSize);
-		fill(0,255,0);
-		rect(mob1[i][1],mob1[i][0],blockSize,blockSize);
+		
+		image(dragon,mob1[i][0]-3*blockSize,mob1[i][1]-3*blockSize,blockSize*6,blockSize*6);
 		
 		
-		if (dist(playerFieldX,playerFieldY,mob1[i][1],mob1[i][0]) < 5) {
-			health -= 1;
-		}
-		if (dist(playerFieldX,playerFieldY,mob1[i][1],mob1[i][0]) < 10) {
-			mob1[i][2] -= 4;
-			mob1[i][0] += random(-5,5);
-			alert("yes");
-		}
 		if (mob1[i][2] < 0) {
 			mob1[i] = [];
 		}
 			
-		if (mob1[i][1] < playerX) {
-			mob1[i][1] += mob1Speed;
-		}
-		if (mob1[i][1] > playerX) {
-			mob1[i][1] -= mob1Speed;
-		}
-		if (mob1[i][0] < playerY) {
+		if (mob1[i][0] < playerX) {
 			mob1[i][0] += mob1Speed;
 		}
-		if (mob1[i][0] > playerY) {
+		if (mob1[i][0] > playerX) {
 			mob1[i][0] -= mob1Speed;
 		}
+		if (mob1[i][1] < playerY) {
+			mob1[i][1] += mob1Speed;
+		}
+		if (mob1[i][1] > playerY) {
+			mob1[i][1] -= mob1Speed;
+		}
+		
+		
+		var mobXBlock = round(mob1[i][0]/blockSize);
+		var mobYBlock = round(mob1[i][1]/blockSize);
+
+		
 	}
 	
 }

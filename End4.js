@@ -77,6 +77,8 @@ draw = function() {
 		bloodLake2 = loadImage("Sprites/blood lake 2.png");
 		bloodLake3 = loadImage("Sprites/blood lake 3.png");
 		bloodLake4 = loadImage("Sprites/blood lake 4.png");
+		
+		dragon = loadImage("Sprites/dragon.png");
 		start = false;
 		
 	}
@@ -126,16 +128,17 @@ draw = function() {
 	
 	//Mobs
 	if (mobsPerRoom > 0) {
-		var xPos = round(random(0,field.length));
-		var yPos = round(random(0,field[0].length));
+		var xPos = round(random(0,field.length-1));
+		var yPos = round(random(0,field[0].length-1));
 		
-		if (field[xPos][yPos] == AIR || 
+		if ((field[xPos][yPos] == AIR || 
 			field[xPos][yPos] == CAVEWALL ||
 			field[xPos][yPos] == DARKCAVEWALL ||
 			field[xPos][yPos] == TREEWALL ||
-			field[xPos][yPos] == RUINEDPILLAR
+			field[xPos][yPos] == RUINEDPILLAR) &&
+			field[xPos][yPos] != null
 		) {
-			mob1[mob1.length] = [xPos*blockSize,yPos*blockSize,10];
+			mob1[mob1.length] = [yPos*blockSize,xPos*blockSize,10];
 			mobsPerRoom -= 1;
 		}
 		

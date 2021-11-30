@@ -53,8 +53,9 @@ PImage blue12;
 
 PImage cloud;
 PImage bloodTreeWood;
-
 PImage leaf;
+PImage dragon;
+
 var cooldown = 0;
 var room = 0;
 var blockSize = 8;
@@ -94,6 +95,8 @@ var LEAF = 24;
 var RUINEDPILLAR = 25;
 var SANDSTONE = 26;
 
+
+
 var portalDrawLoc = [];
 
 var toPortal = false;
@@ -113,7 +116,7 @@ var start = true;
 var mob1 = [];
 var mob1Speed = 1;
 var mob2 = [];
-var numberOfMobs = 3;
+var numberOfMobs = 500;
 var mobsPerRoom = 0;
 
 void setup() {
