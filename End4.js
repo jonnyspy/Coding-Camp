@@ -31,17 +31,18 @@ draw = function() {
 				
 			) {
 				
-				portalDrawLoc[portalDrawLoc.length] = [i, j];
+				portalDrawLoc = [i, j];
 				portalLocations[portalLocations.length] = [j*blockSize, i*blockSize];
 				
 			}
+
+			
+			
 		}
 	}
 	
-	for(var i = 0; i < portalDrawLoc.length; i += 1) {
-		drawBlock(field[portalDrawLoc[0]][portalDrawLoc[1]],portalDrawLoc[1],portalDrawLoc[0]);
-	}
-
+	
+	drawBlock(field[portalDrawLoc[0]][portalDrawLoc[1]],portalDrawLoc[1],portalDrawLoc[0]);
 
 	
 	

@@ -96,7 +96,7 @@ var LEAF = 24;
 var RUINEDPILLAR = 25;
 var SANDSTONE = 26;
 
-var portalDrawLoc = [[],[]];
+var portalDrawLoc = [];
 
 var toPortal = false;
 var portalLocations = [];
