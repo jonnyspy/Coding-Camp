@@ -9,34 +9,6 @@ function drawPlayer() {
 	
 	var playerXBlockM = round(playerX/blockSize);
 	var playerYBlockM = round(playerY/blockSize);
-	var mouseXBlock = round(mouseX/blockSize);
-	var mouseYBlock = round(mouseY/blockSize);
-	
-	//temp
-	if (mousePressed) {
-		if (mouseButton == RIGHT) {
-			field[mouseYBlock][mouseXBlock] = AIR;
-			field[mouseYBlock-1][mouseXBlock] = AIR;
-			field[mouseYBlock+1][mouseXBlock] = AIR;
-			field[mouseYBlock][mouseXBlock-1] = AIR;
-			field[mouseYBlock][mouseXBlock+1] = AIR;
-			field[mouseYBlock-1][mouseXBlock-1] = AIR;
-			field[mouseYBlock+1][mouseXBlock+1] = AIR;
-			field[mouseYBlock-1][mouseXBlock+1] = AIR;
-			field[mouseYBlock+1][mouseXBlock-1] = AIR;
-		}
-		if (mouseButton == LEFT) {
-			field[mouseYBlock][mouseXBlock] = DIRT;
-			field[mouseYBlock-1][mouseXBlock] = DIRT;
-			field[mouseYBlock+1][mouseXBlock] = DIRT;
-			field[mouseYBlock][mouseXBlock-1] = DIRT;
-			field[mouseYBlock][mouseXBlock+1] = DIRT;
-			field[mouseYBlock-1][mouseXBlock-1] = DIRT;
-			field[mouseYBlock+1][mouseXBlock+1] = DIRT;
-			field[mouseYBlock-1][mouseXBlock+1] = DIRT;
-			field[mouseYBlock+1][mouseXBlock-1] = DIRT;
-		}
-	}
 	
 	if(field[playerYBlockM][playerXBlockM] == LAVA) {
 		health -= 1;
@@ -53,9 +25,8 @@ function drawPlayer() {
 	
 	if(field[playerYBlockM][playerXBlockM] == FIRE) {
 		playerYSpeed -= 8;
-		if(health < 100) {
-			health += 10;
-		}
+		health += 10;
+		
 	}
 	if(field[playerYBlockM][playerXBlockM] == WATER || field[playerYBlockM][playerXBlockM] == BLOODLAKE) {
 		if (playerYSpeed > 1) {
@@ -72,10 +43,10 @@ function drawPlayer() {
 		}
 	}
 
-	if (keys[RIGHT] && playerXSpeed < 2) {
+	if (keys[RIGHT] && playerXSpeed < 2.3) {
 		playerXSpeed += 0.1;
 	}
-	if (keys[LEFT] && playerXSpeed > -2) {
+	if (keys[LEFT] && playerXSpeed > -2.3) {
 		playerXSpeed -= 0.1;
 	}
 	if (keys[UP] && isOnGround) {
@@ -83,6 +54,25 @@ function drawPlayer() {
 	}
 	if (playerY < blockSize) {
 		playerY = blockSize;
+	}
+	
+	if(keys[DOWN] && swordDelay >= 10) {
+		swordDelay = 0;
+		playerYSpeed = 0;
+	}
+	if(swordDelay < 9.5) {
+		
+		pushMatrix();
+		translate(playerX+blockSize/2,playerY+blockSize/2);
+		rotate(-swordDelay/1.5);
+		
+		image(sword,0,-32,32,32);
+			
+		popMatrix();
+	}
+	swordDelay += 0.5;
+	if(swordDelay > 10) {
+		swordDelay = 10;
 	}
 	
 	

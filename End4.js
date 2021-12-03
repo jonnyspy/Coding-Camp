@@ -31,7 +31,7 @@ draw = function() {
 				
 			) {
 				
-				portalDrawLoc = [i, j];
+				portalDrawLoc[portalDrawLoc.length] = [i, j];
 				portalLocations[portalLocations.length] = [j*blockSize, i*blockSize];
 				
 			}
@@ -41,8 +41,9 @@ draw = function() {
 		}
 	}
 	
-	
-	drawBlock(field[portalDrawLoc[0]][portalDrawLoc[1]],portalDrawLoc[1],portalDrawLoc[0]);
+	for(var i = 0; i < portalDrawLoc.length; i += 1) {
+		drawBlock(field[portalDrawLoc[i][0]][portalDrawLoc[i][1]],portalDrawLoc[i][1],portalDrawLoc[i][0]);
+	}
 
 	
 	
@@ -160,6 +161,21 @@ draw = function() {
 	noStroke();
 	strokeWeight(1);
 	rect(10,10,health,20);
+	
+	fill(255,0,0,100);
+	rect(10,10,100,20);
+	
+	if(health > 100) {
+		health = 100;
+	}
+	
+	//sword
+	fill(0,255,0);
+	noStroke();
+	strokeWeight(1);
+	rect(10,30,swordDelay*10,10);
+	
+	
 	
 	
 };

@@ -55,6 +55,8 @@ PImage cloud;
 PImage bloodTreeWood;
 PImage leaf;
 PImage dragon;
+PImage sword;
+PImage troll;
 
 var cooldown = 0;
 var room = 0;
@@ -115,9 +117,9 @@ var start = true;
 
 var mob1 = [];
 var mob1Speed = 1;
-var mob2 = [];
-var numberOfMobs = 500;
+var numberOfMobs = 5;
 var mobsPerRoom = 0;
+var swordDelay = 10;
 
 void setup() {
 	size(1000,512);
@@ -146,6 +148,8 @@ void setup() {
 	cloud = loadImage("Sprites/cloud.png");
 	bloodLeaf = loadImage("Sprites/blood leaf.png");
 	playerFrame = loadImage("Sprites/player.png");
+	sword = loadImage("Sprites/sword.png");
+	troll = loadImage("Sprites/troll.png");
 }
 
 void keyPressed() {
