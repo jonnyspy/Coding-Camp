@@ -121,6 +121,10 @@ draw = function() {
 					
 				}
 			}
+			if(room == 11) {
+				playerX = 500;
+				playerY = 200;
+			}
 		}
 		
 	}
