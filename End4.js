@@ -139,7 +139,7 @@ draw = function() {
 			field[xPos][yPos] == RUINEDPILLAR) &&
 			field[xPos][yPos] != null
 		) {
-			//mob1[mob1.length] = [yPos*blockSize,xPos*blockSize,10];
+			mob1[mob1.length] = [yPos*blockSize,xPos*blockSize,10];
 			mobsPerRoom -= 1;
 		}
 		
