@@ -113,7 +113,7 @@ draw = function() {
 					) {
 						
 						playerX = j*blockSize-blockSize/2;
-						playerY = i*blockSize+blockSize*3;
+						playerY = i*blockSize+blockSize*1;
 						
 
 						toPortal = false;
@@ -121,7 +121,7 @@ draw = function() {
 					
 				}
 			}
-			if(room == 11) {
+			if(room == 12) {
 				playerX = 500;
 				playerY = 200;
 			}
